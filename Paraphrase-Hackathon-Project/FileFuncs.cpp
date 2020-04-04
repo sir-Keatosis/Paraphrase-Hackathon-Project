@@ -8,12 +8,10 @@
 
 bool isRightType(std::string filePath)
 {
-    std::string path = filePath;
-    int length;
 
-    //loop removing all bt last for chars
-    //return (path == ".txt" ? true : false );
-    return true;
+    return (filePath.substr(filePath.length() - 4) == ".txt" ? true : false);
+
+
 }
 
 bool isValidFilePath(std::string fIlePath)
@@ -24,7 +22,6 @@ bool isValidFilePath(std::string fIlePath)
     return true;
 }
 
-bool
 
 
 
