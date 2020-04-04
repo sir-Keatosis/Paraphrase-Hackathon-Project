@@ -5,7 +5,7 @@ class CounterManager
 public:
 	CounterManager();
 	~CounterManager();
-	bool check_number_counter(std::string name, int value);
+	bool check_number_counter(std::string name, int value); //returns true if this value already exists
 	bool check_text_counter(std::string name, std::string value);
 private:
 	std::map<std::string, int> number_counters; //all of your number varriable names and values
