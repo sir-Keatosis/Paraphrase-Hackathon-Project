@@ -51,6 +51,17 @@ void CounterManager::number_counter_multiply(std::string name, int value) //mult
 		number_counters.insert(std::make_pair(name, 0));
 }
 
+void CounterManager::number_counter_multiply(std::string name, int value) //divies a number counter that already exists, assumes you're dividing by 1 if you accidentally divide by 0, creates a new counter at 0 if it does not 
+{
+	if (value == 0)
+		value = 1;
+	if (check_number_counter(name))
+		number_counters[name] /= value;
+	else
+		number_counters.insert(std::make_pair(name, 0));
+
+}
+
 int CounterManager::get_number_counter(std::string name) //gives value of a tracked counter, returns 0 if such a counter does not exist
 {
 	if (check_number_counter(name))
