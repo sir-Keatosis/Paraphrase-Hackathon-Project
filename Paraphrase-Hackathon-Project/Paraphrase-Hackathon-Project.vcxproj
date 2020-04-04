@@ -152,10 +152,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CounterManager.cpp" />
+    <ClCompile Include="FileFuncs.cpp" />
     <ClCompile Include="Paraphrase-Hackathon-Project.cpp" />
+    <ClCompile Include="TextParser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CounterManager.h" />
+    <ClInclude Include="TextParser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,6 +10,7 @@ class TextParser
 		CounterManager counters;
 		std::string ParseText(std::string unParse);
 		void readValue(std::string* unParse, int stringPos);
+		void conditional(std::string* unParse, int stringPos);
 	private:
 };
 
