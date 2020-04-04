@@ -57,7 +57,7 @@ std::string CounterManager::get_string_counter(std::string name) //gives the val
 	else
 		return name;
 }
-std::string CounterManager::set_string_counter(std::string name, std::string value) //sets the value of a tracked string if it already exists,
+void CounterManager::set_string_counter(std::string name, std::string value) //sets the value of a tracked string if it already exists,
 {
 	string_counters.insert_or_assign(name, value);
 }

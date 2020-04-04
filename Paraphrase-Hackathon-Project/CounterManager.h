@@ -12,7 +12,7 @@ public:
 	void number_counter_subtract(std::string name, int value); //subtracts from a number counter if it already exists, creates a new counter if it does not
 	int get_number_counter(std::string name); //gives value of a tracked counter, returns 0 if such a counter does not exist
 	std::string get_string_counter(std::string name); //gives the value of a tracked string counter, returns what you thought the key was if that counter doesn't exist
-	std::string set_string_counter(std::string name, std::string value); //sets the value of a tracked string if it already exists, creates a new counter if it does not
+	void set_string_counter(std::string name, std::string value); //sets the value of a tracked string if it already exists, creates a new counter if it does not
 private:
 	std::map<std::string, int> number_counters; //all of your number varriable names and values
 	std::map<std::string, std::string> string_counters; //all of your text variable names and values
