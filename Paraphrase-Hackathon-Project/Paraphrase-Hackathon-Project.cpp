@@ -4,6 +4,7 @@
 #include <iostream>
 #include "TextParser.h"
 #include "CounterManager.h"
+#include "GameManager.h"
 
 void testCounter();
 void testTextParser();
@@ -12,6 +13,7 @@ void testTextParser();
 
 int main()
 {
+	GameManager gameManger;
 	testTextParser();
 	//
 
@@ -23,6 +25,11 @@ int main()
 	std::cin.get();
 
 
+	std::cout << std::endl << std::endl; 
+
+
+	gameManger.start();
+	std::cout << "Welcome to Paraphrase Text adventure tool!\n";
 
 
 } 
