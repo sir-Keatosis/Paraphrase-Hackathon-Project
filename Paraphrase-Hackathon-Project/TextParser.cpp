@@ -113,6 +113,26 @@ void TextParser::conditional(std::string* unParse, int stringPos)
 
 			}
 			break;
+		case'=':
+			if (counters.check_number_counter(variable))
+			{
+				offset++;
+				int check_against = 0; //new temporary variable that holds the value that the inequality is checking
+				int iterations = 0; //new temporary variable that can handle multiple digits
+				while (unParse->at(stringPos + offset) != ' ')
+				{
+					check_against = (check_against * iterations) + ((unParse->at(stringPos + offset) - '0'));
+					iterations++;
+					offset++;
+				}
+				if (counters.get_number_counter(variable) == check_against)
+				{
+					ignore = false;
+				}
+
+			}
+			break;
+
 		default:
 			variable += unParse->at(stringPos + offset);
 		}
