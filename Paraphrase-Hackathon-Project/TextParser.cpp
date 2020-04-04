@@ -129,6 +129,9 @@ void TextParser::conditional(std::string* unParse, int stringPos)
 				}
 			}
 			break;
+		case'[':
+			readValue(unParse, stringPos + offset);
+			break;
 		case'{':
 			conditional(unParse, stringPos + offset);
 		default:
@@ -150,9 +153,10 @@ void TextParser::conditional(std::string* unParse, int stringPos)
 	}
 }
 
-
-
-
+void TextParser::modify_counter(std::string* unParse, int stringPos)
+{
+	todo
+}
 
 	
 
