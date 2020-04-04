@@ -31,7 +31,7 @@ int main()
 void testTextParser()
 {
 	TextParser Parser;
-	std::string testText = "Hello [name]a [name] [name]{key=0 You have [key] keys} its nice to meet you!";
+	std::string testText = "Hello [name]a [name] [name] {key>0 You have [key] keys} its nice to meet you!";
 
 	Parser.counters.set_string_counter("name", "seaney");
 
