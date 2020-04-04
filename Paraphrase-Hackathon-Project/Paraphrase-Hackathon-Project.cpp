@@ -10,7 +10,7 @@ int main()
 {
 	// print something to the terminal
     std::cout << "Welcome to Paraphrase Text adventure tool!\n";
-
+	std::cout << (('5' - '0') + 1) << std::endl;
 
 	// puase for user input
 	std::cin.get();
