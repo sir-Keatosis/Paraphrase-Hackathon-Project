@@ -40,7 +40,26 @@ void CounterManager::number_counter_subtract(std::string name, int value) //subt
 	if (check_number_counter(name))
 		number_counters[name] -= value;
 	else
-		number_counters.insert(std::make_pair(name, value));
+		number_counters.insert(std::make_pair(name, -1 * value));
+}
+
+void CounterManager::number_counter_multiply(std::string name, int value) //multiplies a number counter that already exists, creates a new number counter at 0 if it does not
+{
+	if (check_number_counter(name))
+		number_counters[name] *= value;
+	else
+		number_counters.insert(std::make_pair(name, 0));
+}
+
+void CounterManager::number_counter_multiply(std::string name, int value) //divies a number counter that already exists, assumes you're dividing by 1 if you accidentally divide by 0, creates a new counter at 0 if it does not 
+{
+	if (value == 0)
+		value = 1;
+	if (check_number_counter(name))
+		number_counters[name] /= value;
+	else
+		number_counters.insert(std::make_pair(name, 0));
+
 }
 
 int CounterManager::get_number_counter(std::string name) //gives value of a tracked counter, returns 0 if such a counter does not exist
@@ -57,7 +76,7 @@ std::string CounterManager::get_string_counter(std::string name) //gives the val
 	else
 		return name;
 }
-std::string CounterManager::set_string_counter(std::string name, std::string value) //sets the value of a tracked string if it already exists,
+void CounterManager::set_string_counter(std::string name, std::string value) //sets the value of a tracked string if it already exists,
 {
 	string_counters.insert_or_assign(name, value);
 }
