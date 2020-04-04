@@ -14,12 +14,10 @@ bool isRightType(std::string filePath)
 
 }
 
-bool isValidFilePath(std::string fIlePath)
+bool isValidFile(std::string filePath, std::fstream stream)
 {
-    //
-    //create path instance
-    //return result of checking method
-    return true;
+    stream.open(filePath);
+    return stream.good();
 }
 
 
