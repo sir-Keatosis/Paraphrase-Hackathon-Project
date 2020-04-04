@@ -38,21 +38,21 @@ void TextParser::readValue(std::string* unParse, int stringPos)
 	std::string variable = "";
 	while (unParse->at(stringPos + offset) != ']')
 	{
-		variable += unParse->at(stringPos + offset);
+		variable += unParse->at(stringPos + offset); 
 		offset++;
 	}
 	if (counters.check_number_counter(variable))
 	{
-		unParse->replace(stringPos, offset, std::to_string(counters.get_number_counter(variable)));
-
+		unParse->replace(stringPos, offset, std::to_string(counters.get_number_counter(variable))); //checks to see if the variable exists in the number map
+																									//Number variables will always take precidence over string variables
 	}
 	else if (counters.check_string_counter(variable))
 	{
-		unParse->replace(stringPos, offset, counters.get_string_counter(variable));
+		unParse->replace(stringPos, offset, counters.get_string_counter(variable)); //If a number variable is not found in the map, then the string map is checked
 	}
 	else
 	{
-		unParse->replace(stringPos, offset, "variable : " + variable + " not found ");
+		unParse->replace(stringPos, offset, "variable : " + variable + " not found "); //Finally, if this variable is not found in the string counter map then you get this error message
 	}
 }
 
