@@ -155,7 +155,16 @@ void TextParser::conditional(std::string* unParse, int stringPos)
 
 void TextParser::modify_counter(std::string* unParse, int stringPos)
 {
-	todo
+	std::string variable;
+	std::string variable2; //for when you're doing variable + variable 
+	int offset = 1;
+	while (unParse->at(stringPos + offset) != '|')
+	{
+		/*
+		variable += unParse->at(stringPos + offset);
+		offset++;
+		*/
+	}
 }
 
 	
