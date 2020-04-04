@@ -91,7 +91,6 @@ void TextParser::conditional(std::string* unParse, int stringPos)
 				{
 					ignore = false;
 				}
-
 			}
 			break;
 		case'<':
@@ -110,7 +109,6 @@ void TextParser::conditional(std::string* unParse, int stringPos)
 				{
 					ignore = false;
 				}
-
 			}
 			break;
 		case'=':
@@ -129,10 +127,10 @@ void TextParser::conditional(std::string* unParse, int stringPos)
 				{
 					ignore = false;
 				}
-
 			}
 			break;
-
+		case'{':
+			conditional(unParse, stringPos + offset);
 		default:
 			variable += unParse->at(stringPos + offset);
 		}
