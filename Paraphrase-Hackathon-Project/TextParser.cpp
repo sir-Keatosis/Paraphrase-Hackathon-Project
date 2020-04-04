@@ -17,7 +17,7 @@ std::string TextParser::ParseText(std::string unParse)
 		{
 		case '[': readValue(&unParse, stringPos);
 			break;
-		case '|': 
+		case '|': modify_counter(&unParse, stringPos);
 			break;
 		case '{': conditional(&unParse, stringPos);
 			break;
