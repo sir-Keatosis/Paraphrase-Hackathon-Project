@@ -1,4 +1,5 @@
 #include "CounterManager.h"
+#include <string>
 #include<map>
 
 

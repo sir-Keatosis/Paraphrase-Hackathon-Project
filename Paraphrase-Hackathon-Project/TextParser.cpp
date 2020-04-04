@@ -1,5 +1,6 @@
 #include "TextParser.h"
 #include "CounterManager.h"
+#include <string>
 
 /*
 	takes an unedited chapter and evaulates all offical sytex with correct values.
