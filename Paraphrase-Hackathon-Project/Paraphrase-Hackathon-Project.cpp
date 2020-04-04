@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "TextParser.h"
+#include "CounterManager.h"
 
 
 int main()
