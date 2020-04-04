@@ -40,7 +40,7 @@ void CounterManager::number_counter_subtract(std::string name, int value) //subt
 	if (check_number_counter(name))
 		number_counters[name] -= value;
 	else
-		number_counters.insert(std::make_pair(name, value));
+		number_counters.insert(std::make_pair(name, -1 * value));
 }
 
 int CounterManager::get_number_counter(std::string name) //gives value of a tracked counter, returns 0 if such a counter does not exist
