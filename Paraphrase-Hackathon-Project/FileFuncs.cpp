@@ -30,7 +30,7 @@ std::string readFile(std::ifstream stream, std::string file)
         if (stream.good() == true)
         {
             {
-                char* str;
+                char* str = {};
                 std::string output = "";
                 while (stream.get(str, 5000))
                 {
