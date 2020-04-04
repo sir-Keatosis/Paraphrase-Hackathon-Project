@@ -10,7 +10,7 @@ std::string TextParser::ParseText(std::string unParse)
 	int stringPos = 0;
 	std::string temp = "a";
 
-	while (stringPos < unParse.length)
+	while (stringPos < unParse.length())
 	{
 		switch (unParse.at(stringPos))
 		{
@@ -23,8 +23,8 @@ std::string TextParser::ParseText(std::string unParse)
 		case '~':
 			break;
 		default:
+			break;
 		}
-
 		stringPos++;
 	}
 	return "this should be a Parsed string";
