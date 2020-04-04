@@ -31,12 +31,14 @@ int main()
 void testTextParser()
 {
 	TextParser Parser;
-	std::string testText = "Hello [name][name][name] its nice to meet you!";
+	std::string testText = "Hello [name]a [name] [name] {key You have a key!} its nice to meet you!";
 
 	Parser.counters.set_string_counter("name", "seaney");
 
-	std::cout << Parser.ParseText(testText);
+	Parser.counters.number_counter_add("key",1);
 
+
+	std::cout << Parser.ParseText(testText);
 
 
 

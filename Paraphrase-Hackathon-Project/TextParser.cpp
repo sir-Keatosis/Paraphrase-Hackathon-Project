@@ -14,11 +14,11 @@ std::string TextParser::ParseText(std::string unParse)
 	{
 		switch (unParse.at(stringPos))
 		{
-		case '[': readValue(&unParse, stringPos + 1);
+		case '[': readValue(&unParse, stringPos);
 			break;
 		case '|': 
 			break;
-		case '{': conditional(&unParse, stringPos + 1);
+		case '{': conditional(&unParse, stringPos);
 			break;
 		case '~':
 			break;
@@ -34,7 +34,7 @@ std::string TextParser::ParseText(std::string unParse)
 
 void TextParser::readValue(std::string* unParse, int stringPos)
 {
-	int offset = 0;
+	int offset = 1;
 	std::string variable = "";
 	while (unParse->at(stringPos + offset) != ']')
 	{
@@ -43,16 +43,16 @@ void TextParser::readValue(std::string* unParse, int stringPos)
 	}
 	if (counters.check_number_counter(variable))
 	{
-		unParse->replace(stringPos - 1, offset + 2, std::to_string(counters.get_number_counter(variable))); //checks to see if the variable exists in the number map
+		unParse->replace(stringPos, offset + 1, std::to_string(counters.get_number_counter(variable))); //checks to see if the variable exists in the number map
 																									//Number variables will always take precidence over string variables
 	}
 	else if (counters.check_string_counter(variable))
 	{
-		unParse->replace(stringPos - 1, offset + 2, counters.get_string_counter(variable)); //If a number variable is not found in the map, then the string map is checked
+		unParse->replace(stringPos, offset + 1, counters.get_string_counter(variable)); //If a number variable is not found in the map, then the string map is checked
 	}
 	else
 	{
-		unParse->replace(stringPos - 1, offset + 2, "variable : " + variable + " not found "); //Finally, if this variable is not found in the string counter map then you get this error message
+		unParse->replace(stringPos, offset + 1, "variable : " + variable + " not found "); //Finally, if this variable is not found in the string counter map then you get this error message
 	}
 }
 
@@ -142,11 +142,11 @@ void TextParser::conditional(std::string* unParse, int stringPos)
 	}
 	if (ignore)
 	{
-		unParse->replace(stringPos, offset, "");
+		unParse->replace(stringPos, offset + 1, "");
 	}
 	else 
 	{
-		unParse->replace(stringPos, offset, conditional_text);
+		unParse->replace(stringPos, offset + 1, conditional_text);
 	}
 }
 
