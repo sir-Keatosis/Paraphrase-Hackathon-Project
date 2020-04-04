@@ -3,6 +3,7 @@
 #include "TextParser.h"
 #include <cstdlib>
 #include <filesystem>
+#include <fstream>
 #include <string>
 #include <cmath>
 
