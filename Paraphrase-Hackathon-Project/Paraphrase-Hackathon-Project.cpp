@@ -5,8 +5,13 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
-}
+	// print something to the terminal
+    std::cout << "Welcome to Paraphrase Text adventure tool!\n";
+
+
+	// puase for user input
+	std::cin.get();
+} 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
