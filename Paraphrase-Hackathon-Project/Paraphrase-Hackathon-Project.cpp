@@ -16,8 +16,7 @@ int main()
 	//
 
 	// print something to the terminal
-    std::cout << "Welcome to Paraphrase Text adventure tool!\n";
-	std::cout << (('5' - '0') + 1) << std::endl;	
+    std::cout << "Welcome to Paraphrase Text adventure tool!\n";	
 
 	// puase for user input
 	std::cin.get();
@@ -32,13 +31,14 @@ void testTextParser()
 {
 	TextParser Parser;
 	std::string testText = "Hello [name]a [name] [name] {key>0 You have [key] keys} its nice to meet you!";
+	std::string testTextTwo = "I had [key] keys, but now I have #key+1# keys";
 
 	Parser.counters.set_string_counter("name", "seaney");
 
 	Parser.counters.number_counter_add("key",4);
 
 
-	std::cout << Parser.ParseText(testText);
+	std::cout << Parser.ParseText("I had [key] keys, but now I have #key+1# keys");
 
 }
 
