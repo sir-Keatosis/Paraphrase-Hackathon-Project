@@ -2,6 +2,8 @@
 //
 
 #include <iostream>
+#include "TextParser.h"
+
 
 int main()
 {
@@ -11,7 +13,12 @@ int main()
 
 	// puase for user input
 	std::cin.get();
+
+
+
+
 } 
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
