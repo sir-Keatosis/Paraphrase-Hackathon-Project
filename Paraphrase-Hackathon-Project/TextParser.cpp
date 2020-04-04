@@ -156,6 +156,7 @@ void TextParser::conditional(std::string* unParse, int stringPos)
 
 void TextParser::modify_counter(std::string* unParse, int stringPos)
 {
+	int value_mod = 0;
 	bool done = false; //flag is set to true when the calculation is complete
 	std::string variable;
 	std::string variable2; //for when you're doing variable + variable which is coming later after the base stuff is working
@@ -166,7 +167,7 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 		switch (unParse->at(stringPos + offset))
 		{
 		case'=':
-			int value_mod = 0; //new temporary variable that holds the value that the number counter is being set to
+			value_mod = 0; //new temporary variable that holds the value that the number counter is being set to
 			int iterations = 0; //new temporary variable that can handle multiple digits
 			while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '|')
 			{
@@ -177,7 +178,7 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 			counters.number_counter_equals(variable, value_mod);
 			break;
 		case'+':
-			int value_mod = 0; //new temporary variable that holds the value that the number that is added to the counter
+			value_mod = 0; //new temporary variable that holds the value that the number that is added to the counter
 			int iterations = 0; //new temporary variable that can handle multiple digits
 			while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '|')
 			{
@@ -188,7 +189,7 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 			counters.number_counter_add(variable, value_mod);
 			break;
 		case'-':
-			int value_mod = 0; //new temporary variable that holds the value that the number counter is being set to
+			value_mod = 0; //new temporary variable that holds the value that the number counter is being set to
 			int iterations = 0; //new temporary variable that can handle multiple digits
 			while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '|')
 			{
@@ -199,7 +200,7 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 			counters.number_counter_subtract(variable, value_mod);
 			break;
 		case'*':
-			int value_mod = 0; //new temporary variable that holds the value that the number counter is being multiplied by
+			value_mod = 0; //new temporary variable that holds the value that the number counter is being multiplied by
 			int iterations = 0; //new temporary variable that can handle multiple digits
 			while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '|')
 			{
