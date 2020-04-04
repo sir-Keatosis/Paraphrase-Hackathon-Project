@@ -27,14 +27,14 @@ std::string TextParser::ParseText(std::string unParse)
 		}
 		stringPos++;
 	}
-	return "this should be a Parsed string";
+	return unParse;
 }
 
 
 
 void TextParser::readValue(std::string* unParse, int stringPos)
 {
-	int offset = 1;
+	int offset = 0;
 	std::string variable = "";
 	while (unParse->at(stringPos + offset) != ']')
 	{
@@ -43,16 +43,16 @@ void TextParser::readValue(std::string* unParse, int stringPos)
 	}
 	if (counters.check_number_counter(variable))
 	{
-		unParse->replace(stringPos, offset, std::to_string(counters.get_number_counter(variable))); //checks to see if the variable exists in the number map
+		unParse->replace(stringPos - 1, offset + 2, std::to_string(counters.get_number_counter(variable))); //checks to see if the variable exists in the number map
 																									//Number variables will always take precidence over string variables
 	}
 	else if (counters.check_string_counter(variable))
 	{
-		unParse->replace(stringPos, offset, counters.get_string_counter(variable)); //If a number variable is not found in the map, then the string map is checked
+		unParse->replace(stringPos - 1, offset + 2, counters.get_string_counter(variable)); //If a number variable is not found in the map, then the string map is checked
 	}
 	else
 	{
-		unParse->replace(stringPos, offset, "variable : " + variable + " not found "); //Finally, if this variable is not found in the string counter map then you get this error message
+		unParse->replace(stringPos - 1, offset + 2, "variable : " + variable + " not found "); //Finally, if this variable is not found in the string counter map then you get this error message
 	}
 }
 
