@@ -1,5 +1,6 @@
 #include "TextParser.h"
 #include "CounterManager.h"
+#include "Portal.h"
 #include <string>
 
 
@@ -55,7 +56,7 @@ void TextParser::MakePortal(std::string* unParse, int stringPos)
 		Text += unParse->at(stringPos + offset);
 		offset++;
 	}
-
+	
 	portals.push_back(*(new Portal(fileName, Text)));
 	unParse->replace(stringPos - 1, offset + 2, "");
 }

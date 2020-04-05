@@ -14,7 +14,7 @@ class TextParser
 		void conditional(std::string* unParse, int stringPos);
 		void modify_counter(std::string* unParse, int stringPos);
 		void MakePortal(std::string* unParse, int stringPos);
-	private:
 		std::vector <Portal> portals;
+	private:
 };
 
