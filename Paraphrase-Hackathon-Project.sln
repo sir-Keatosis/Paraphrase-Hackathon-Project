@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.28307.1062
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Paraphrase-Hackathon-Project", "Paraphrase-Hackathon-Project\Paraphrase-Hackathon-Project.vcxproj", "{E3881104-8EDA-472A-B937-94B48AF14DEF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23121ECD-A659-404A-B873-BC2EB3F38468}"
+	ProjectSection(SolutionItems) = preProject
+		Paraphrase-Hackathon-Project\Portal.cpp = Paraphrase-Hackathon-Project\Portal.cpp
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

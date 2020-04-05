@@ -11,19 +11,22 @@
 
 
 
-bool isRightType(std::string filePath);
+//bool isRightType(std::string filePath);
 void testCounter();
 void testTextParser();
-std::string readFile(std::ifstream& stream, std::string file);
+//std::string readFile(std::ifstream& stream, std::string file);
 std::ifstream stream;
 std::string test;
+
+void testSaving();
 
 int main()
 {
 	GameManager gameManger;
-	testTextParser();
+	//testTextParser();
 	//
-	test = readFile(stream, "./textfiles/Text.txt");
+	//test = readFile(stream, "./textfiles/Text.txt");
+	testSaving();
 
 	// print something to the terminal
     std::cout << "Welcome to Paraphrase Text adventure tool!\n";
@@ -62,8 +65,8 @@ void testTextParser()
 
 
 
-
-bool isRightType(std::string filePath)
+/*
+bool isRightType(std::string filePath) //is being moved to counter manager
 {
 
 	return (filePath.substr(filePath.length() - 4) == ".txt" ? true : false);
@@ -71,7 +74,7 @@ bool isRightType(std::string filePath)
 
 }
 
-std::string readFile(std::ifstream& stream, std::string file)
+std::string readFile(std::ifstream& stream, std::string file) //is being moved to counter manager
 {
 	const std::string failStmnt = "Sorry, unable to open file";
 
@@ -100,6 +103,23 @@ std::string readFile(std::ifstream& stream, std::string file)
 	else
 	{
 		return failStmnt;
+	}
+}
+*/
+void testSaving()
+{
+	CounterManager counters;
+	counters.number_counter_add("one", 1);
+	counters.number_counter_add("two", 1);
+	counters.number_counter_add("three", 1);
+	counters.set_string_counter("name", "Arlo");
+	if (counters.save("test_save.txt"))
+	{
+		std::cout << "Saved successfully\n";
+	}
+	else
+	{
+		std::cout << "Did not save successfully\n";
 	}
 }
 
