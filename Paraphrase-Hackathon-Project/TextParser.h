@@ -2,6 +2,8 @@
 
 #include <string>
 #include "CounterManager.h"
+#include <vector>
+#include "Portal.h"
 
 class TextParser
 {
@@ -11,6 +13,8 @@ class TextParser
 		void readValue(std::string* unParse, int stringPos); //unParse is a pointer to the origional string, stringPos says where it was in parsing before it hit this character
 		void conditional(std::string* unParse, int stringPos);
 		void modify_counter(std::string* unParse, int stringPos);
+		void MakePortal(std::string* unParse, int stringPos);
 	private:
+		std::vector <Portal> portals;
 };
 
