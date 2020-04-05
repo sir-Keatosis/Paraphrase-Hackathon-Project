@@ -41,7 +41,7 @@ void GameManager::start()
 			break;
 		case '2': //loading save file
 			wrongInput = false;
-			std::cout << "Please enter the name of your save file!";
+			std::cout << "Please enter the name of your save file: ";
 			std::cin >> fileName;
 			if (Counters.load(fileName, currentChapter))
 			{
@@ -191,7 +191,8 @@ void GameManager::choosePortal()
 			//call save function
 			std::string save_file_name = "";
 			std::cout << "Please enter the name you'd like to save to: ";
-			getline(std::cin, save_file_name);
+			//getline(std::cin, save_file_name);
+			std::cin >> save_file_name;
 			if (Counters.save(save_file_name, currentChapter))
 			{
 				std::cout << "\nsucessfully saved to " << save_file_name << "\n";
@@ -207,7 +208,8 @@ void GameManager::choosePortal()
 			//call load function
 			std::string save_file_name = "";
 			std::cout << "Please enter the name of the file you'd like to load: ";
-			getline(std::cin, save_file_name);
+			//getline(std::cin, save_file_name);
+			std::cin >> save_file_name;
 			if (Counters.load(save_file_name, currentChapter))
 			{
 				std::cout << "\nsucessfully loaded " << save_file_name << "\n";
