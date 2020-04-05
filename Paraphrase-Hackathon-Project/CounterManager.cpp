@@ -1,7 +1,9 @@
 #include "CounterManager.h"
+#include "GameManager.h"
 #include <string>
 #include <map>
 #include <fstream>
+#include <iostream>
 
 
 CounterManager::CounterManager()
@@ -161,5 +163,65 @@ bool CounterManager::save(std::string file_name)
 	else
 	{
 		return false;
+	}
+}
+bool CounterManager::load(std::string file_name, GameManager & my_game)
+{
+
+	std::ifstream input;
+	std::string current_line;
+	std::string temp_chapter;
+	std::map<std::string, int> temp_numbers;
+	std::map<std::string, int> temp_strings;
+	int mode = 0; //0 means you're in numbers mode, 1 means you're in string mode. An Enumerator would have been better here but since it's bianary I didn't see the point. Would have done a bool but we may off in the distant future want to add a third variable type so that's why it's an int oh my god this is a really long comment how are you doing today I'm doing pretty well but I could be better tbh
+	if (!isRightType(file_name))
+	{
+		file_name += ".txt";
+	}
+	input.open(file_name);
+	if (input.is_open())
+	{
+		getline(input, current_line);
+		temp_chapter = current_line;
+		getline(input, current_line);
+		if (current_line != "NUMBERS")
+		{
+			std::cout << "This save file is not propperly formatted\n";
+			return false;
+		}
+	}
+	else
+	{
+		return false;
+	}
+
+	while (input.good())
+	{
+		getline(input, current_line);
+		if (current_line == "DONE")
+		{
+			input.close();
+			return true;
+		}
+		if (current_line == "STRINGS")
+			mode = 1;
+		if (mode = 0)
+		{
+			int i = 0;
+			std::string counter_name = "";
+			while (i < current_line.length() and current_line.at(i) != ' ')
+			{
+				counter_name += current_line.at(i);
+				i++;
+			}
+			std::string counter_value = "";
+			i++;
+			while (i < current_line.length())
+			{
+				counter_value += current_line.at(i);
+				i++;
+			}
+			temp_numbers.insert_or_assign(counter_name, std::stoi(counter_value));
+		}
 	}
 }
