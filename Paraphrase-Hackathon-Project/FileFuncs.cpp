@@ -8,48 +8,33 @@
 
 
 
-/*
-//bool isRightType(std::string filePath);
-//std::string readFile(std::ifstream& stream, std::string file);
 
-bool isRightType(std::string filePath)
+
+/*string  next_color(string color)
 {
+    string next_color;
+    vector<string> color_list;
+    color_list.push_back("red");
+    color_list.push_back("yellow");
+    color_list.push_back("green");
 
-    return (filePath.substr(filePath.length() - 4) == ".txt" ? true : false);
-
-
-}
-
-std::string readFile(std::ifstream& stream, std::string file)
-{
-    const std::string failStmnt = "Sorry, unable to open file";
-    
-    if (isRightType(file) == true)
+    if(color == color_list.at(0))
     {
-        stream.open(file);
-        if (stream.good() == true)
-        {
-            {
-                std::string output = "";
-                while (!stream.eof())
-                {
-                    std::getline(stream, output);
-                }
-                stream.close();
-                return output;
-            }
-        }
-        else
-        {
-            return failStmnt;
-        }
-
-
+        next_color = color_list.at(1);
+    }
+    else if (color == color_list.at(1))
+    {
+        next_color = color_list.at(2);
+    }
+    else if(color == color_list.at(2))
+    {
+        next_color = color_list.at(0);
     }
     else
     {
-        return failStmnt;
+        next_color = "error";
     }
+    return  next_color;
 }*/
 
 
