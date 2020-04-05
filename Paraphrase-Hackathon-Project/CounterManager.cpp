@@ -100,7 +100,7 @@ std::string CounterManager::readFile(std::string file)
 	if (isRightType(file) == true)
 	{
 		stream.open(file);
-		if (stream.is_open == true)
+		if (stream.is_open() == true)
 		{
 			{
 				std::string output = "";
