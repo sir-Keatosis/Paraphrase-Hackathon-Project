@@ -1,7 +1,7 @@
 you look on your desk and find a walet with $20 in it and next to it 2 keys.
 
-~takeall.txt you take #money=20#$[money=20] and #key=2# [key].~
-~takemoney.txt you take #money=20#$[money]~
-~takekey.txt you take #key=2# [key]~
+~takeall.txt you take the money and keys~ 
+~takemoney.txt you take the money~
+~takekey.txt you take keys~
 ~lookincloest.txt check cloest for items~ 
 ~Opendoor.txt Open door and walk out~
