@@ -1,9 +1,8 @@
-#include "CounterManager.h"
-#include "GameManager.h"
 #include <string>
 #include <map>
 #include <fstream>
 #include <iostream>
+#include "CounterManager.h"
 
 
 CounterManager::CounterManager()
@@ -127,11 +126,9 @@ std::string CounterManager::readFile(std::string file)
 	}
 }
 
-bool CounterManager::save(std::string file_name)
+bool CounterManager::save(std::string file_name, std::string & my_game)
 {
 	std::ofstream output;
-	//std::map<std::string, int> it_numbers;
-	//std::map<std::string, int> it_string;
 	if (!isRightType(file_name))
 	{
 		file_name += ".txt";
@@ -140,7 +137,7 @@ bool CounterManager::save(std::string file_name)
 	if (output.good())
 	{
 		//current chapter would go here
-		output << "CURRENT CHAPTER PLACE HOLDER TEXT \n"
+		output << my_game << "\n"
 			<< "NUMBERS\n";
 		for (auto const& x : number_counters)
 		{
@@ -165,14 +162,15 @@ bool CounterManager::save(std::string file_name)
 		return false;
 	}
 }
-/*bool CounterManager::load(std::string file_name, GameManager & my_game)
+bool CounterManager::load(std::string file_name, std::string & my_game)
 {
 
 	std::ifstream input;
-	std::string current_line;
-	std::string temp_chapter;
-	std::map<std::string, int> temp_numbers;
-	std::map<std::string, int> temp_strings;
+		std::map<std::string, int> temp_numbers;
+	std::map<std::string, std::string> temp_strings;
+	int i = 0;
+	//Just innitializing all the temp varriables right here
+	std::string counter_name, counter_value, current_line, temp_chapter, input;
 	int mode = 0; //0 means you're in numbers mode, 1 means you're in string mode. An Enumerator would have been better here but since it's bianary I didn't see the point. Would have done a bool but we may off in the distant future want to add a third variable type so that's why it's an int oh my god this is a really long comment how are you doing today I'm doing pretty well but I could be better tbh
 	if (!isRightType(file_name))
 	{
@@ -200,15 +198,34 @@ bool CounterManager::save(std::string file_name)
 		getline(input, current_line);
 		if (current_line == "DONE")
 		{
+			number_counters = temp_numbers;
+			string_counters = temp_strings;
+			my_game = temp_chapter;
 			input.close();
 			return true;
 		}
+		if (mode == 1) //for reading in string variables
+		{
+			i = 0;
+			counter_name = "";
+			while (i < current_line.length() and current_line.at(i) != ' ')
+			{
+				counter_name += current_line.at(i);
+			}
+			counter_value = "";
+			i++;
+			while (i < current_line.length())
+			{
+				counter_value += current_line.at(i);
+			}
+			temp_strings.insert_or_assign(counter_name, counter_value);
+		}
 		if (current_line == "STRINGS")
 			mode = 1;
-		if (mode = 0)
+		if (mode == 0) //for reading in number variables
 		{
-			int i = 0;
-			std::string counter_name = "";
+			i = 0;
+			counter_name = "";
 			while (i < current_line.length() and current_line.at(i) != ' ')
 			{
 				counter_name += current_line.at(i);
@@ -224,4 +241,4 @@ bool CounterManager::save(std::string file_name)
 			temp_numbers.insert_or_assign(counter_name, std::stoi(counter_value));
 		}
 	}
-}*/
+}
