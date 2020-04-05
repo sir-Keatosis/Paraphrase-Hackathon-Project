@@ -102,6 +102,7 @@ void GameManager::setPortal(std::string fileName, std::string displayText)
 */
 void GameManager::runChapter(std::string filename)
 {
+	currentChapter = filename;
 	Parser.portals.clear();
 	std::string output = "";
 	output = readFile(filename);
