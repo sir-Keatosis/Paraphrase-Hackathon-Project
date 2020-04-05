@@ -208,7 +208,10 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 				iterations++;
 				offset++;
 			}
-			counters.number_counter_equals(variable, value_mod);
+			if (!readOnly)
+			{
+				counters.number_counter_equals(variable, value_mod);
+			}
 			break;
 		case'+':
 			offset++;
@@ -220,7 +223,10 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 				offset++;
 				iterations++;
 			}
-			counters.number_counter_add(variable, value_mod);
+			if (!readOnly)
+			{
+				counters.number_counter_equals(variable, value_mod);
+			}
 			break;
 		case'-':
 			offset++;
@@ -232,7 +238,10 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 				iterations++;
 				offset++;
 			}
-			counters.number_counter_subtract(variable, value_mod);
+			if (!readOnly)
+			{
+				counters.number_counter_equals(variable, value_mod);
+			}
 			break;
 		case'*':
 			offset++;
@@ -244,7 +253,10 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 				iterations++;
 				offset++;
 			}
-			counters.number_counter_multiply(variable, value_mod);
+			if (!readOnly)
+			{
+				counters.number_counter_equals(variable, value_mod);
+			}
 			break;
 		case'/':
 			offset++;
@@ -256,7 +268,10 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 				iterations++;
 				offset++;
 			}
-			counters.number_counter_divide(variable, value_mod);
+			if (!readOnly)
+			{
+				counters.number_counter_equals(variable, value_mod);
+			}
 			break;
 		default:
 			variable += unParse->at(stringPos + offset);

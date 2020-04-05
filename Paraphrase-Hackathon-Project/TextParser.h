@@ -15,6 +15,7 @@ class TextParser
 		void modify_counter(std::string* unParse, int stringPos);
 		void MakePortal(std::string* unParse, int stringPos);
 		std::vector <Portal> portals;
+		bool readOnly = false;
 	private:
 };
 
