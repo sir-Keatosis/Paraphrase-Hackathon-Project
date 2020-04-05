@@ -4,8 +4,6 @@
 
 
 
-
-
 void GameManager::start()
 {
 	Parser.counters = this->Counters;
@@ -53,8 +51,57 @@ void GameManager::start()
 
 void GameManager::setPortal(std::string fileName, std::string displayText)
 {
+
+
 }
 
+
+void GameManager::runChapter(std::string filename)
+{
+	TextParser parse;
+	std::string output = "";
+	output = readFile(Filestream, filename);
+	std::cout << parse.ParseText(output);
+	//choosePortal();
+}
+
+bool GameManager::isRightType(std::string filePath) // is being moved to counter manager
+{
+	return (filePath.substr(filePath.length() - 4) == ".txt" ? true : false);
+}
+
+
+std::string GameManager::readFile(std::ifstream& stream, std::string file) //is being moved to counter manager
+{
+	const std::string failStmnt = "Sorry, unable to open file";
+
+	if (isRightType(file) == true)
+	{
+		stream.open(file);
+		if (stream.good() == true)
+		{
+			{
+				std::string output = "";
+				std::string temp = "";
+				while (stream.good())
+				{
+					std::getline(stream, temp);
+					output.append(temp + "\n");
+				}
+				stream.close();
+				return output;
+			}
+		}
+		else
+		{
+			return failStmnt;
+		}
+	}
+	else
+	{
+		return failStmnt;
+	}
+}
 
 
 void GameManager::choosePortal()
