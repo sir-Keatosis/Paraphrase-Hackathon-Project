@@ -170,7 +170,7 @@ bool CounterManager::load(std::string file_name, std::string & my_game)
 	std::map<std::string, std::string> temp_strings;
 	int i = 0;
 	//Just innitializing all the temp varriables right here
-	std::string counter_name, counter_value, current_line, temp_chapter, input;
+	std::string counter_name, counter_value, current_line, temp_chapter;
 	int mode = 0; //0 means you're in numbers mode, 1 means you're in string mode. An Enumerator would have been better here but since it's bianary I didn't see the point. Would have done a bool but we may off in the distant future want to add a third variable type so that's why it's an int oh my god this is a really long comment how are you doing today I'm doing pretty well but I could be better tbh
 	if (!isRightType(file_name))
 	{
