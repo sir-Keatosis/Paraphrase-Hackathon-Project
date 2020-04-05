@@ -170,6 +170,7 @@ void GameManager::choosePortal()
 	Portal portal;
 	int choice;
 	const std::string numString = "012346789";
+	const std::string actionString = "sSlL";
 	const std::string tryAgain = "Invalid input. Try Again.";
 
 	std::map<int, std::string> choiceMap;
@@ -184,9 +185,46 @@ void GameManager::choosePortal()
 	if (length == 1)
 	{
 		const size_t found = numString.find(userInput);
+		if (userInput == "s" or userInput == "S")
+		{
+			//call save function
+			std::string save_file_name = "";
+			std::cout << "Please enter the name you'd like to save to: ";
+			getline(std::cin, save_file_name);
+			if (Counters.save(save_file_name, currentChapter))
+			{
+				std::cout << "\nsucessfully saved to " << save_file_name << "\n";
+			}
+			else
+			{
+				std::cout << "\n did not sucessfully save to " << save_file_name << "\n";
+				choosePortal();
+			}
+		}
+		if (userInput == "l" or userInput == "L")
+		{
+			//call load function
+			std::string save_file_name = "";
+			std::cout << "Please enter the name of the file you'd like to load: ";
+			getline(std::cin, save_file_name);
+			if (Counters.load(save_file_name, currentChapter))
+			{
+				std::cout << "\nsucessfully loaded " << save_file_name << "\n";
+				//set read only flag
+				Parser.readOnly = true;
+				runChapter(currentChapter);
+			}
+			else
+			{
+				std::cout << "\nfailed to load " << save_file_name << "\n";
+				choosePortal();
+			}
+
+		}
 		if (found != std::string::npos)
 		{
 			choice = std::stoi(userInput);
+			Parser.readOnly = false;
 			runChapter(Parser.portals.at(choice).getfileName());
 		}
 		else
