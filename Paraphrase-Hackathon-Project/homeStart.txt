@@ -2,6 +2,6 @@ you wake up to the sound of birds cheerping and decide to roll out of bed.
 
 you are wearing nothing but Pjs.
 
-~Lookatdesk.txt Look on desk for items~
+~Lookatdesk.txt Look for items on your desk~
 ~lookincloest.txt check cloest for items~
 ~Opendoor.txt Open door and walk out~

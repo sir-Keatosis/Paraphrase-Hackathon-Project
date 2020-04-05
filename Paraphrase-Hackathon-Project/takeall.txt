@@ -1,5 +1,6 @@
 you take both #money=20# $[money] and #key=2# [key] keys from your desk.
 
+you now have $[money] and [key] keys.
 now your desk is empty.
 
 ~lookincloest.txt check cloest for items~
