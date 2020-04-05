@@ -31,6 +31,9 @@ std::string TextParser::ParseText(std::string unParse)
 			MakePortal(&unParse, stringPos);
 			stringPos--;
 			break;
+		case '|':
+			string_modify_counter(&unParse, stringPos);
+			stringPos--;
 		default:
 			break;
 		}
@@ -38,6 +41,40 @@ std::string TextParser::ParseText(std::string unParse)
 	}
 	return unParse;
 }
+
+void TextParser::string_modify_counter(std::string* unParse, int stringPos)
+{
+	bool done = false; //flag is set to true when the calculation is complete
+	std::string variable;
+	std::string input; //for when you're doing variable + variable which is coming later after the base stuff is working
+						   //so for now it goes unused
+	int offset = 1;
+	while (unParse->at(stringPos + offset) != '|')
+	{
+		switch (unParse->at(stringPos + offset))
+		{
+		case'=':
+			offset++;
+			while (unParse->at(stringPos + offset) != '|')
+			{
+				input += unParse->at(stringPos + offset);
+				offset++;
+			}
+			if (!readOnly)
+			{
+				counters.set_string_counter(variable, input);
+			}
+			break;
+		default:
+			variable += unParse->at(stringPos + offset);
+			offset++;
+			break;
+		}
+	}
+	unParse->replace(stringPos - 1, offset + 2, "");
+}
+
+
 
 
 
@@ -208,7 +245,10 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 				iterations++;
 				offset++;
 			}
-			counters.number_counter_equals(variable, value_mod);
+			if (!readOnly)
+			{
+				counters.number_counter_equals(variable, value_mod);
+			}
 			break;
 		case'+':
 			offset++;
@@ -220,7 +260,10 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 				offset++;
 				iterations++;
 			}
-			counters.number_counter_add(variable, value_mod);
+			if (!readOnly)
+			{
+				counters.number_counter_equals(variable, value_mod);
+			}
 			break;
 		case'-':
 			offset++;
@@ -232,7 +275,10 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 				iterations++;
 				offset++;
 			}
-			counters.number_counter_subtract(variable, value_mod);
+			if (!readOnly)
+			{
+				counters.number_counter_equals(variable, value_mod);
+			}
 			break;
 		case'*':
 			offset++;
@@ -244,7 +290,10 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 				iterations++;
 				offset++;
 			}
-			counters.number_counter_multiply(variable, value_mod);
+			if (!readOnly)
+			{
+				counters.number_counter_equals(variable, value_mod);
+			}
 			break;
 		case'/':
 			offset++;
@@ -256,7 +305,10 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 				iterations++;
 				offset++;
 			}
-			counters.number_counter_divide(variable, value_mod);
+			if (!readOnly)
+			{
+				counters.number_counter_equals(variable, value_mod);
+			}
 			break;
 		default:
 			variable += unParse->at(stringPos + offset);
