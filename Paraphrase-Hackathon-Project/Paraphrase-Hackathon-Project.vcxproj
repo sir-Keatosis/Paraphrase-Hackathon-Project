@@ -155,11 +155,13 @@
     <ClCompile Include="FileFuncs.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Paraphrase-Hackathon-Project.cpp" />
+    <ClCompile Include="Portal.cpp" />
     <ClCompile Include="TextParser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CounterManager.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Portal.h" />
     <ClInclude Include="TextParser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
