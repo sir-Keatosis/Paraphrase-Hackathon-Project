@@ -26,7 +26,7 @@ int main()
 {
 	GameManager gameManger;
 	//testSaving();
-	//testLoading();
+	testLoading();
 	
 	gameManger.start();
 } 
