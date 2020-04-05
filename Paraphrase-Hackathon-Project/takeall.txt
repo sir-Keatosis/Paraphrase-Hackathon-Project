@@ -1,0 +1,7 @@
+you take both #money=20# $[money] and #key=2# [key] keys from your desk.
+
+now your desk is empty.
+
+~lookincloest.txt check cloest for items~
+~Opendoor.txt Open door and walk out~
+ 

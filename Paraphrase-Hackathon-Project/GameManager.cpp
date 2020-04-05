@@ -39,12 +39,20 @@ void GameManager::start()
 			fileName.append(".txt");
 			runChapter(fileName);
 			break;
-		case '2':
+		case '2': //loading save file
 			wrongInput = false;
 			std::cout << "Please enter the name of your save file!";
 			std::cin >> fileName;
-			fileName.append(".txt");
-			// This is where we will load a save game 
+			if (Counters.load(fileName, currentChapter))
+			{
+				std::cout << fileName << " Successfully loaded!\n";
+				wrongInput = false;
+			}
+			else
+			{
+				std::cout << fileName << " Failed to load (incorrect file name, or impropperly formatted save file)\n";
+				wrongInput = true;
+			}
 			break;
 		default:
 			std::cout << "Sorry you didn't enter 1 or 2. \n \n";
@@ -77,7 +85,7 @@ void GameManager::printText(std::string textToPrint )
 
 void GameManager::setPortal(std::string fileName, std::string displayText)
 {
-
+	//not functional right now
 
 }
 
