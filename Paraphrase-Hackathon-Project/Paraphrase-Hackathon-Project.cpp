@@ -98,6 +98,7 @@ std::string readFile(std::ifstream& stream, std::string file) //is being moved t
 	}
 }
 
+/*
 void testSaving()
 {
 	CounterManager counters;
@@ -114,6 +115,7 @@ void testSaving()
 		std::cout << "Did not save successfully\n";
 	}
 }
+*/
 
 
 
