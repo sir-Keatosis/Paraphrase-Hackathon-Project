@@ -175,7 +175,6 @@ void GameManager::choosePortal()
 	}
 	std::cin >> userInput;
 	const int length = userInput.length();
-	choice = std::stoi(userInput);
 	if (length == 1)
 	{
 		const size_t found = numString.find(userInput);
@@ -183,7 +182,6 @@ void GameManager::choosePortal()
 		{
 			choice = std::stoi(userInput);
 			std::cout << readFile(choiceMap[choice])<< std::endl;
-
 		}
 		else
 		{
