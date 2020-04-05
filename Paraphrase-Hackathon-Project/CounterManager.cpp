@@ -1,6 +1,7 @@
 #include "CounterManager.h"
 #include <string>
-#include<map>
+#include <map>
+#include <fstream>
 
 
 CounterManager::CounterManager()
@@ -80,4 +81,85 @@ std::string CounterManager::get_string_counter(std::string name) //gives the val
 void CounterManager::set_string_counter(std::string name, std::string value) //sets the value of a tracked string if it already exists,
 {
 	string_counters.insert_or_assign(name, value);
+}
+
+
+bool CounterManager::isRightType(std::string filePath) //Checks to see if it's a txt or not
+{
+
+	return (filePath.substr(filePath.length() - 4) == ".txt" ? true : false); //returns true if it's a .txt
+
+
+}
+
+std::string CounterManager::readFile(std::string file)
+{
+	const std::string failStmnt = "Sorry, unable to open file";
+	std::ifstream stream;
+
+	if (isRightType(file) == true)
+	{
+		stream.open(file);
+		if (stream.is_open == true)
+		{
+			{
+				std::string output = "";
+				while (stream.good())
+				{
+					std::getline(stream, output);
+				}
+				stream.close();
+				return output;
+			}
+		}
+		else
+		{
+			return failStmnt;
+		}
+
+
+	}
+	else
+	{
+		return failStmnt;
+	}
+}
+
+bool CounterManager::save(std::string file_name)
+{
+	std::ofstream output;
+	//std::map<std::string, int> it_numbers;
+	//std::map<std::string, int> it_string;
+	if (!isRightType(file_name))
+	{
+		file_name += ".txt";
+	}
+	output.open(file_name);
+	if (output.good())
+	{
+		//current chapter would go here
+		output << "CURRENT CHAPTER PLACE HOLDER TEXT \n"
+			<< "NUMBERS\n";
+		for (auto const& x : number_counters)
+		{
+			output << x.first  // string (key)
+				<< " "
+				<< x.second
+				<< "\n";
+		}
+		output << "STRINGS\n";
+		for (auto const& y : string_counters)
+		{
+			output << y.first
+				<< " "
+				<< y.second
+				<< "\n";
+		}
+		output << "DONE";
+		output.close();
+	}
+	else
+	{
+		return false;
+	}
 }
