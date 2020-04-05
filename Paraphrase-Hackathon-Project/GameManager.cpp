@@ -205,7 +205,7 @@ void GameManager::choosePortal()
 				choosePortal();
 			}
 		}
-		if (userInput == "l" or userInput == "L")
+		else if (userInput == "l" or userInput == "L")
 		{
 			//call load function
 			std::string save_file_name = "";
@@ -226,7 +226,7 @@ void GameManager::choosePortal()
 			}
 
 		}
-		if (found != std::string::npos)
+		else if (found != std::string::npos)
 		{
 			choice = std::stoi(userInput);
 			Parser.readOnly = false;
