@@ -43,7 +43,8 @@ int main()
 	gameManger.start();
 	std::cout << "Welcome to Paraphrase Text adventure tool!\n";
 
-
+	std::cout << "Testing print_file_parser" << std::endl;
+	print_file_parser("Parserfile.txt");
 } 
 
 
@@ -62,7 +63,13 @@ void testTextParser()
 
 }
 
+void print_file_parser(std::string file_text)
+{
+	TextParser parse;
+	readFile(stream, file_text);
+	parse.ParseText(file_text);
 
+}
 
 
 /*

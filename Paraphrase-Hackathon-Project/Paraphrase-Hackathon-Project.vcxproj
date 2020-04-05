@@ -162,7 +162,6 @@
     <ClInclude Include="CounterManager.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Portal.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="TextParser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
