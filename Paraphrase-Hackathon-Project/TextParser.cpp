@@ -2,6 +2,7 @@
 #include "CounterManager.h"
 #include <string>
 
+
 /*
 	takes an unedited chapter and evaulates all offical sytex with correct values.
 
@@ -25,6 +26,8 @@ std::string TextParser::ParseText(std::string unParse)
 			stringPos--;
 			break;
 		case '~':
+			MakePortal(&unParse, stringPos);
+			stringPos--;
 			break;
 		default:
 			break;
@@ -34,6 +37,28 @@ std::string TextParser::ParseText(std::string unParse)
 	return unParse;
 }
 
+
+
+void TextParser::MakePortal(std::string* unParse, int stringPos)
+{
+	int offset = 1;
+	std::string fileName = "";
+	std::string Text = "";
+
+	while (unParse->at(stringPos + offset) != ' ')
+	{
+		fileName += unParse->at(stringPos + offset);
+		offset++;
+	}
+	while (unParse->at(stringPos + offset) != '~')
+	{
+		Text += unParse->at(stringPos + offset);
+		offset++;
+	}
+
+	portals.push_back(*(new Portal(fileName, Text)));
+	unParse->replace(stringPos - 1, offset + 2, "");
+}
 
 
 void TextParser::readValue(std::string* unParse, int stringPos)
