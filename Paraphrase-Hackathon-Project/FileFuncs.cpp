@@ -6,6 +6,12 @@
 #include <string>
 #include <cmath>
 
+
+
+/*
+//bool isRightType(std::string filePath);
+//std::string readFile(std::ifstream& stream, std::string file);
+
 bool isRightType(std::string filePath)
 {
 
@@ -14,27 +20,20 @@ bool isRightType(std::string filePath)
 
 }
 
-bool isValidFile(std::string filePath, std::fstream stream)
-{
-    stream.open(filePath);
-    return stream.good();
-}
-
-std::string readFile(std::ifstream stream, std::string file)
+std::string readFile(std::ifstream& stream, std::string file)
 {
     const std::string failStmnt = "Sorry, unable to open file";
-
+    
     if (isRightType(file) == true)
     {
         stream.open(file);
         if (stream.good() == true)
         {
             {
-                char* str;
                 std::string output = "";
-                while (stream.get(str, 5000))
+                while (!stream.eof())
                 {
-                    output.append(str);
+                    std::getline(stream, output);
                 }
                 stream.close();
                 return output;
@@ -51,7 +50,7 @@ std::string readFile(std::ifstream stream, std::string file)
     {
         return failStmnt;
     }
-}
+}*/
 
 
 
