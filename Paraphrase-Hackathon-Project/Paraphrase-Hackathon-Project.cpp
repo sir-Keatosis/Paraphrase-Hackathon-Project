@@ -11,10 +11,11 @@
 
 
 
-//bool isRightType(std::string filePath);
+bool isRightType(std::string filePath);
+void print_file_parser(std::string file_text);
 void testCounter();
 void testTextParser();
-//std::string readFile(std::ifstream& stream, std::string file);
+std::string readFile(std::ifstream& stream, std::string file);
 std::ifstream stream;
 std::string test;
 
@@ -23,28 +24,8 @@ void testSaving();
 int main()
 {
 	GameManager gameManger;
-	//testTextParser();
-	//
-	//test = readFile(stream, "./textfiles/Text.txt");
-	testSaving();
-
-	// print something to the terminal
-    std::cout << "Welcome to Paraphrase Text adventure tool!\n";
-	std::cout << (('5' - '0') + 1) << std::endl;	
-	std::cout << test << std::endl;
-
-	// puase for user input
-	std::cin.get();
-
-
-	std::cout << std::endl << std::endl; 
-
-
-	gameManger.start();
-	std::cout << "Welcome to Paraphrase Text adventure tool!\n";
-
-	std::cout << "Testing print_file_parser" << std::endl;
-	print_file_parser("Parserfile.txt");
+	
+	print_file_parser("textfiles/parser.txt");
 } 
 
 
@@ -66,8 +47,12 @@ void testTextParser()
 void print_file_parser(std::string file_text)
 {
 	TextParser parse;
-	readFile(stream, file_text);
-	parse.ParseText(file_text);
+	std::string output = "";
+	output = readFile(stream, file_text);
+	std::cout << parse.ParseText(output);
+	/*
+		we should also print out the portals and ask for user input
+	*/
 
 }
 
@@ -92,9 +77,11 @@ std::string readFile(std::ifstream& stream, std::string file) //is being moved t
 		{
 			{
 				std::string output = "";
-				while (!stream.eof())
+				std::string temp = "";
+				while (stream.good())
 				{
-					std::getline(stream, output);
+					std::getline(stream, temp);
+					output.append(temp + "\n");
 				}
 				stream.close();
 				return output;
@@ -104,8 +91,6 @@ std::string readFile(std::ifstream& stream, std::string file) //is being moved t
 		{
 			return failStmnt;
 		}
-
-
 	}
 	else
 	{
