@@ -5,9 +5,10 @@
 class GameManager
 {
 	public:
+		struct Portal;
 		void start();
 		void setPortal(std::string fileName, std::string displayText);
 	private:
-		std::list <Portal> portals;
+		
 };
 

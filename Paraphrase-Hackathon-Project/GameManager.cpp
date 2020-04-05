@@ -5,8 +5,12 @@
 
 
 
-struct Portal
+struct GameManager::Portal
 {
+	Portal()
+	{
+
+	}
 	Portal(std::string _fileName, std::string _displayText)
 	{
 		fileName = _fileName;
@@ -24,11 +28,12 @@ void GameManager::start()
 	std::cout << "Please enter a number \n 1. start a new game? \n 2. load a new game \n";
 
 	std::cin >> UserReponce;
+
 }
 
 
 
-void setPortal(std::string fileName, std::string displayText)
+void GameManager::setPortal(std::string fileName, std::string displayText)
 {
-	Portals
+	//Portals
 }
