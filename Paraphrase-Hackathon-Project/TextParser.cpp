@@ -262,7 +262,7 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 			}
 			if (!readOnly)
 			{
-				counters.number_counter_equals(variable, value_mod);
+				counters.number_counter_add(variable, value_mod);
 			}
 			break;
 		case'-':
@@ -277,7 +277,7 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 			}
 			if (!readOnly)
 			{
-				counters.number_counter_equals(variable, value_mod);
+				counters.number_counter_subtract(variable, value_mod);
 			}
 			break;
 		case'*':
@@ -292,7 +292,7 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 			}
 			if (!readOnly)
 			{
-				counters.number_counter_equals(variable, value_mod);
+				counters.number_counter_multiply(variable, value_mod);
 			}
 			break;
 		case'/':
@@ -307,7 +307,7 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 			}
 			if (!readOnly)
 			{
-				counters.number_counter_equals(variable, value_mod);
+				counters.number_counter_divide(variable, value_mod);
 			}
 			break;
 		default:
