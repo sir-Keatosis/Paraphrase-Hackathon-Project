@@ -17,8 +17,6 @@
 */
 void GameManager::start()
 {
-	Parser.counters = this->Counters;
-	Parser.portals = this->portals;
 
 	char UserReponce;
 	std::string fileName;
@@ -96,11 +94,11 @@ void GameManager::setPortal(std::string fileName, std::string displayText)
 */
 void GameManager::runChapter(std::string filename)
 {
-	TextParser parse;
+	Parser.portals.clear();
 	std::string output = "";
 	output = readFile(filename);
-	printText(parse.ParseText(output));
-	//TODO choosePortal();
+	printText(Parser.ParseText(output));
+	choosePortal();
 }
 
 
@@ -167,9 +165,9 @@ void GameManager::choosePortal()
 	const std::string tryAgain = "Invalid input. Try Again.";
 
 	std::map<int, std::string> choiceMap;
-	for (int count = 0; count < portals.size(); count++)
+	for (int count = 0; count < Parser.portals.size(); count++)
 	{
-		portal = portals.at(count);
+		portal = Parser.portals.at(count);
 		choiceMap[count] = portal.getfileName();
 	std::cout << "Choice " << count << +": " + portal.getDisplayText() << std::endl;
 	}
@@ -181,19 +179,19 @@ void GameManager::choosePortal()
 		if (found != std::string::npos)
 		{
 			choice = std::stoi(userInput);
-			std::cout << readFile(choiceMap[choice])<< std::endl;
+			runChapter(Parser.portals.at(choice).getfileName());
 		}
 		else
 		{
 			std::cout << tryAgain << std::endl;
-			return choosePortal();
+			choosePortal();
 		}
 
 	}
 	else
 	{
 		std::cout << tryAgain << std::endl;
-		return choosePortal();
+		choosePortal();
 	}
 
 }

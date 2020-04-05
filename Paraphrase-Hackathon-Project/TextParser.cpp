@@ -25,6 +25,7 @@ std::string TextParser::ParseText(std::string unParse)
 			break;
 		case '{': conditional(&unParse, stringPos);
 			stringPos--;
+			stringPos--;
 			break;
 		case '~':
 			MakePortal(&unParse, stringPos);
