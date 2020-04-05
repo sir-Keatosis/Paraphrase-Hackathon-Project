@@ -160,10 +160,43 @@ std::string GameManager::readFile(std::string file) //is being moved to counter 
 
 void GameManager::choosePortal()
 {
-	/*
-	for (int count = 0; count < portals.size(); count++))
+	std::string userInput;
+	Portal portal;
+	int choice;
+	const std::string numString = "012346789";
+	const std::string tryAgain = "Invalid input. Try Again.";
+
+	std::map<int, std::string> choiceMap;
+	for (int count = 0; count < portals.size(); count++)
 	{
-	std::cout << "Choice " << namedInt << +": " + portal.getDisplayText() << endl;
-	}*/
+		portal = portals.at(count);
+		choiceMap[count] = portal.getfileName();
+	std::cout << "Choice " << count << +": " + portal.getDisplayText() << std::endl;
+	}
+	std::cin >> userInput;
+	const int length = userInput.length();
+	choice = std::stoi(userInput);
+	if (length == 1)
+	{
+		const size_t found = numString.find(userInput);
+		if (found != std::string::npos)
+		{
+			choice = std::stoi(userInput);
+			std::cout << readFile(choiceMap[choice])<< std::endl;
+
+		}
+		else
+		{
+			std::cout << tryAgain << std::endl;
+			return choosePortal();
+		}
+
+	}
+	else
+	{
+		std::cout << tryAgain << std::endl;
+		return choosePortal();
+	}
+
 }
 
