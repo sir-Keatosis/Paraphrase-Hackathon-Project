@@ -1,4 +1,4 @@
-Lookatdesk.txt
+takeall.txt
 NUMBERS
 STRINGS
 DONE

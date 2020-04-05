@@ -46,6 +46,8 @@ void GameManager::start()
 			if (Counters.load(fileName, currentChapter))
 			{
 				std::cout << fileName << " Successfully loaded!\n";
+				Parser.readOnly = true;
+				runChapter(currentChapter);
 				wrongInput = false;
 			}
 			else
