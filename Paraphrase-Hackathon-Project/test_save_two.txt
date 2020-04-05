@@ -1,8 +1,9 @@
 The magical Ball world
 NUMBERS
+four 4
 one 1
 three 1
 two 1
 STRINGS
-name Barlo
+name Harlo
 DONE

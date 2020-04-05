@@ -195,6 +195,7 @@ bool CounterManager::load(std::string file_name, std::string & my_game)
 
 	while (input.good())
 	{
+		//std::cout << "looping good \n"; //for testing
 		getline(input, current_line);
 		if (current_line == "DONE")
 		{
@@ -211,12 +212,14 @@ bool CounterManager::load(std::string file_name, std::string & my_game)
 			while (i < current_line.length() and current_line.at(i) != ' ')
 			{
 				counter_name += current_line.at(i);
+				i++;
 			}
 			counter_value = "";
 			i++;
 			while (i < current_line.length())
 			{
 				counter_value += current_line.at(i);
+				i++;
 			}
 			temp_strings.insert_or_assign(counter_name, counter_value);
 		}
