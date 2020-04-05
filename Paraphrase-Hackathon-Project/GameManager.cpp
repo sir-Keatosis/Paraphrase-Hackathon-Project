@@ -8,6 +8,9 @@
 
 void GameManager::start()
 {
+	Parser.counters = this->Counters;
+	Parser.portals = this->portals;
+
 	char UserReponce;
 	std::string fileName;
 	bool wrongInput = true;
@@ -62,3 +65,4 @@ void GameManager::choosePortal()
 	std::cout << "Choice " << namedInt << +": " + portal.getDisplayText() << endl;
 	}*/
 }
+
