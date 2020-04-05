@@ -6,7 +6,6 @@
 
 
 
-
 void GameManager::start()
 {
 	char UserReponce;
@@ -28,7 +27,7 @@ void GameManager::start()
 			std::cout << "Please enter the name of the start chapter for the game you would like to run \n file name : ";
 			std::cin >> fileName;
 			fileName.append(".txt");
-			// this is where we would run the start chapter function
+			
 			break;
 		case '2':
 			wrongInput = false;
