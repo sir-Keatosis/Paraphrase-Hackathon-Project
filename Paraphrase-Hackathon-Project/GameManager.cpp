@@ -24,3 +24,14 @@ void GameManager::start()
 void GameManager::setPortal(std::string fileName, std::string displayText)
 {
 }
+
+
+
+void GameManager::choosePortal()
+{
+
+	for (int count = 0; count < portals.size(); count++))
+	{
+	std::cout << "Choice " << namedInt << +": " + portal.getDisplayText() << endl;
+	}
+}
