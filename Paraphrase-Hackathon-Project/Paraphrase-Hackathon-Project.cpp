@@ -25,7 +25,7 @@ int main()
 {
 	GameManager gameManger;
 	
-	print_file_parser("textfiles/parser.txt");
+	gameManger.start();
 } 
 
 

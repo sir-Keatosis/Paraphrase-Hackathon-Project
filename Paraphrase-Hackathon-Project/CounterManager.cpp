@@ -165,7 +165,7 @@ bool CounterManager::save(std::string file_name)
 		return false;
 	}
 }
-bool CounterManager::load(std::string file_name, GameManager & my_game)
+/*bool CounterManager::load(std::string file_name, GameManager & my_game)
 {
 
 	std::ifstream input;
@@ -224,4 +224,4 @@ bool CounterManager::load(std::string file_name, GameManager & my_game)
 			temp_numbers.insert_or_assign(counter_name, std::stoi(counter_value));
 		}
 	}
-}
+}*/

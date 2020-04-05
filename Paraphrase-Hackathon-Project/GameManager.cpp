@@ -1,9 +1,20 @@
 #include "GameManager.h"
 #include "iostream"
 #include <string>
+#include <chrono>
+#include <thread>
 
 
+/**
+	This function starts the game sets the portals and counter manager to be the same in 
+	both textParser and GameManager. After this it asks users if they want to load or start a new game,
 
+	on new game this function starts running runChapter() with the given file name, 
+	
+	on load game TODO(it will run the load command from CounterManger)
+
+
+*/
 void GameManager::start()
 {
 	Parser.counters = this->Counters;
@@ -28,7 +39,7 @@ void GameManager::start()
 			std::cout << "Please enter the name of the start chapter for the game you would like to run \n file name : ";
 			std::cin >> fileName;
 			fileName.append(".txt");
-			
+			runChapter(fileName);
 			break;
 		case '2':
 			wrongInput = false;
@@ -47,7 +58,24 @@ void GameManager::start()
 		}
 	}
 }
-  
+
+/**
+	prints text at a char by char speed.
+
+	@param textToPrint the string to print out.
+*/
+void GameManager::printText(std::string textToPrint )
+{
+	int strPos = 0;
+	while (strPos < textToPrint.length())
+	{
+		std::cout << textToPrint.at(strPos);
+		std::this_thread::sleep_for(std::chrono::milliseconds(50));
+		strPos++;
+	}
+
+}
+
 
 void GameManager::setPortal(std::string fileName, std::string displayText)
 {
@@ -56,25 +84,51 @@ void GameManager::setPortal(std::string fileName, std::string displayText)
 }
 
 
+/**
+	handals all of the calls to actually run one chapter, this means that 
+	this function will in order
+		read the passed in file in
+		get the parsed text form the parser
+		tell the printer to print the text
+		run the choosePortalcommand
+
+	@param filename Name of file to run
+*/
 void GameManager::runChapter(std::string filename)
 {
 	TextParser parse;
 	std::string output = "";
-	output = readFile(Filestream, filename);
-	std::cout << parse.ParseText(output);
-	//choosePortal();
+	output = readFile(filename);
+	printText(parse.ParseText(output));
+	//TODO choosePortal();
 }
 
+
+/**
+	Opens a file with the name of file
+
+	@param file The name of the file to open
+	@return if file is openable returns the raw text from the file as a string,
+	@return other wise it will reutrn "Sorry, unable to open file"
+*/
 bool GameManager::isRightType(std::string filePath) // is being moved to counter manager
 {
 	return (filePath.substr(filePath.length() - 4) == ".txt" ? true : false);
 }
 
 
-std::string GameManager::readFile(std::ifstream& stream, std::string file) //is being moved to counter manager
+/**
+	Opens a file with the name of file and if the file can be opend 
+	as is a txt file returns a string of the files contence
+
+	@param file The name of the file to open
+	@return if file is openable returns the raw text from the file as a string, 
+	@return other wise it will reutrn "Sorry, unable to open file"
+*/
+std::string GameManager::readFile(std::string file) //is being moved to counter manager
 {
 	const std::string failStmnt = "Sorry, unable to open file";
-
+	std::ifstream stream;
 	if (isRightType(file) == true)
 	{
 		stream.open(file);
