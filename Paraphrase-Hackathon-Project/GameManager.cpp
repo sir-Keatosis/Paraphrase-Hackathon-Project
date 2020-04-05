@@ -5,20 +5,7 @@
 
 
 
-struct GameManager::Portal
-{
-	Portal()
-	{
 
-	}
-	Portal(std::string _fileName, std::string _displayText)
-	{
-		fileName = _fileName;
-		displayText = _displayText;
-	}
-	std::string fileName; 
-	std::string displayText;
-};
 
 void GameManager::start()
 {
@@ -35,5 +22,4 @@ void GameManager::start()
 
 void GameManager::setPortal(std::string fileName, std::string displayText)
 {
-	//Portals
 }

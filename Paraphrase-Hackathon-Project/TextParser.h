@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include "TextParser.h"
 #include "CounterManager.h"
 
 class TextParser
