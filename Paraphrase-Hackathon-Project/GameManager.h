@@ -21,7 +21,6 @@ class GameManager
 		std::string currentChapter;
 		TextParser Parser;
 		CounterManager Counters;
-		std::vector <Portal> portals;
 	private:
 };
 
