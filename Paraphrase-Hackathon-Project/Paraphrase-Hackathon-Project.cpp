@@ -72,7 +72,7 @@ void print_file_parser(std::string file_text)
 }
 
 
-/*
+
 bool isRightType(std::string filePath) //is being moved to counter manager
 {
 
@@ -112,7 +112,7 @@ std::string readFile(std::ifstream& stream, std::string file) //is being moved t
 		return failStmnt;
 	}
 }
-*/
+
 void testSaving()
 {
 	CounterManager counters;
