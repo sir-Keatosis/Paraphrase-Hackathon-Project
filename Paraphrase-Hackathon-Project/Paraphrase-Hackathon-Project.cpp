@@ -20,10 +20,13 @@ std::ifstream stream;
 std::string test;
 
 void testSaving();
+void testLoading();
 
 int main()
 {
 	GameManager gameManger;
+	//testSaving();
+	//testLoading();
 	
 	gameManger.start();
 } 
@@ -98,15 +101,17 @@ std::string readFile(std::ifstream& stream, std::string file) //is being moved t
 	}
 }
 
-/*
+
 void testSaving()
 {
 	CounterManager counters;
+	GameManager Game;
+	Game.currentChapter = "The magical Ball world";
 	counters.number_counter_add("one", 1);
 	counters.number_counter_add("two", 1);
 	counters.number_counter_add("three", 1);
-	counters.set_string_counter("name", "Arlo");
-	if (counters.save("test_save.txt"))
+	counters.set_string_counter("name", "Barlo");
+	if (counters.save("test_save.txt", Game.currentChapter))
 	{
 		std::cout << "Saved successfully\n";
 	}
@@ -115,7 +120,31 @@ void testSaving()
 		std::cout << "Did not save successfully\n";
 	}
 }
-*/
+
+void testLoading()
+{
+	CounterManager counters;
+	GameManager Game;
+	std::cout << "beginning load test \n";
+	if (counters.load("test_save.txt", Game.currentChapter))
+	{
+		std::cout << "Test Loaded successfully \n";
+	}
+	else
+	{
+		std::cout << "Did not pass the loading test \n";
+	}
+	counters.set_string_counter("name", "Harlo");
+	counters.number_counter_add("four", 4);
+	if (counters.save("test_save_two.txt", Game.currentChapter))
+	{
+		std::cout << "and resaved successfully \n";
+	}
+	else
+	{
+		std::cout << "Somehow it failed to resave \n";
+	}
+}
 
 
 
