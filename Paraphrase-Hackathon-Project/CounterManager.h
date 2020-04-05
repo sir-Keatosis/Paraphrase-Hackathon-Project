@@ -1,6 +1,7 @@
 #pragma once
 #include<map>
 #include <string>
+
 class CounterManager
 {
 public:
@@ -19,6 +20,7 @@ public:
 private:
 	std::map<std::string, int> number_counters; //all of your number varriable names and values
 	std::map<std::string, std::string> string_counters; //all of your text variable names and values
+	void save(std::string file_name);
 	/*
 	void create_number_counter(std::string name, int value); //creates a new number value //not nesisary because add and equals can create initizalize a couter
 	void create_sting_counter(std::string name, std::string value); //creates a text value //not nessisary because set_string_counter can create and initiailize a counter
