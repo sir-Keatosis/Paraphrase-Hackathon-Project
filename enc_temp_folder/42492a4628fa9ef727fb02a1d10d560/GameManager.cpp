@@ -18,14 +18,14 @@
 
 void GameManager::listCounters()
 {
-	for (auto const& x : Parser.counters.number_counters)
+	for (auto const& x : Counters.number_counters)
 	{
 		std::cout << x.first  // string (key)
 		<< " "
 		<< x.second
 		<< "\n";
 	}
-	for (auto const& x : Parser.counters.string_counters)
+	for (auto const& x : Counters.string_counters)
 	{
 		std::cout << x.first  // string (key)
 			<< " "

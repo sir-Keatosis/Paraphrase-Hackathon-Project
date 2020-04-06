@@ -25,6 +25,7 @@ void testLoading();
 int main()
 {
 	GameManager gameManger;
+	testLoading();
 	gameManger.start();
 } 
 
@@ -132,7 +133,7 @@ void testLoading()
 		std::cout << "Did not pass the loading test \n";
 	}
 	counters.set_string_counter("name", "Harlo");
-	counters.number_counter_add("four", 4);
+	counters.number_counter_add("four", 40);
 	if (counters.save("test_save_two.txt", Game.currentChapter))
 	{
 		std::cout << "and resaved successfully \n";

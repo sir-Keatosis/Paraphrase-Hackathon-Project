@@ -21,6 +21,7 @@ class GameManager
 		void listCounters();
 		std::string currentChapter;
 		TextParser Parser;
+		CounterManager Counters;
 	private:
 };
 
