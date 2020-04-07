@@ -25,7 +25,7 @@ void testLoading();
 int main()
 {
 	GameManager gameManger;
-	testLoading();
+	//testLoading();
 	gameManger.start();
 } 
 
