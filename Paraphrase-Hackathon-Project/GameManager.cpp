@@ -208,7 +208,8 @@ void GameManager::choosePortal()
 		const size_t found = numString.find(userInput);
 		if (userInput == "s" or userInput == "S")
 		{
-			listCounters();
+			//listCounters(); //this was put in for testing purposes, but it is redundant and there is no reason to see it at run time
+			//if you would like to see the variables in play, simply open your save file in notepad
 			//call save function
 			std::string save_file_name = "";
 			std::cout << "Please enter the name you'd like to save to: ";
@@ -236,7 +237,7 @@ void GameManager::choosePortal()
 			{
 				std::cout << "\nsucessfully loaded " << save_file_name << "\n";
 				//set read only flag
-				//Parser.readOnly = true;
+				Parser.readOnly = true;
 				runChapter(currentChapter);
 			}
 			else
