@@ -11,7 +11,7 @@
 
 	on new game this function starts running runChapter() with the given file name, 
 	
-	on load game TODO(it will run the load command from CounterManger)
+	loading and saving is now functional (and should be given their own functions, however they're rolled into another function)
 
 
 */
@@ -40,7 +40,7 @@ void GameManager::start()
 	std::string fileName;
 	bool wrongInput = true;
 
-	std::cout << "Welcome to Paraphrase Text adventure tool!\n";
+	std::cout << "Welcome to Paraphrase Text adventure tool v1.0!\n";
 	std::cout << "Please enter a number \n 1. start a new game? \n 2. load a saved game \n Choice : ";
 	std::cin >> UserReponce;
 	std::cin.ignore(10000, '\n');
