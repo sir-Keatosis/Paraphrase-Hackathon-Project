@@ -208,6 +208,20 @@ void TextParser::conditional(std::string* unParse, int stringPos)
 					ignore = false;
 				}
 			}
+			else if (counters.check_string_counter(variable)) //Will only check string counters if a number counter does not already exist
+			{
+				offset++;
+				std::string check_against_string = ""; //new temporary variable that holds the value that the inequality is checking
+				while (unParse->at(stringPos + offset) != ' ')
+				{
+					check_against_string += unParse->at(stringPos+offset);
+					offset++;
+				}
+				if (counters.get_string_counter(variable) == check_against_string)
+				{
+					ignore = false;
+				}
+			}
 			break;
 		case'[':
 			readValue(unParse, stringPos + offset);
