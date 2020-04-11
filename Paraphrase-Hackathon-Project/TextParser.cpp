@@ -178,6 +178,18 @@ void TextParser::conditional(std::string* unParse, int stringPos)
 					ignore = false;
 				}
 			}
+			else //should allow less than conditionals to allways suceed if the counter is undefined 
+			{
+				offset++;
+				int iterations = 0;
+				while (unParse->at(stringPos + offset) != ' ')
+				{
+					iterations++;
+					offset++;
+				}
+				ignore = false;
+				
+			}
 			break;
 		case'=':
 			if (counters.check_number_counter(variable))
