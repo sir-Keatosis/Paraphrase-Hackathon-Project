@@ -126,8 +126,9 @@ std::string CounterManager::readFile(std::string file)
 	}
 }
 
-bool CounterManager::save(std::string file_name, std::string & my_game)
+bool CounterManager::save(std::string file_name, std::string & my_game) //File path for the saves folder is also hard coded here
 {
+	file_name = ".\\saves\\" + file_name; //This is the hard coded location, just in case we want to swap it to be non-hard coded later
 	std::ofstream output;
 	if (!isRightType(file_name))
 	{
@@ -162,11 +163,11 @@ bool CounterManager::save(std::string file_name, std::string & my_game)
 		return false;
 	}
 }
-bool CounterManager::load(std::string file_name, std::string & my_game)
+bool CounterManager::load(std::string file_name, std::string & my_game) //Currently uses hard coded save file path, we can adjust that later
 {
-
+	file_name = ".\\saves\\" + file_name; //This is the hard coded location, just in case we want to swap it to be non-hard coded later
 	std::ifstream input;
-		std::map<std::string, int> temp_numbers;
+	std::map<std::string, int> temp_numbers;
 	std::map<std::string, std::string> temp_strings;
 	int i = 0;
 	//Just innitializing all the temp varriables right here
