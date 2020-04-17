@@ -1,0 +1,14 @@
+you are awake now.
+{DidDream perhaps too late. There's no time to dream about being a dragon rider, not when you're this close.
+Looking down from your bunk you can see the rest of the beds in the cabin are empty, but you can still hear some noise outside. This wasn't the first time you'd slept through the bugel. You leap hurredly on to the stiff wooden planks. } 
+{DidDream<1 You seem to be the first one awake, but the others will be up soon.
+You quietly descend the shakey wooden bunk on to the dusty floorboards below, careful to not wake them in their last precious few minutes before the bugel starts the morning for good. }
+You grab your leather cadet uniform off hook on the wall and slip it on. It's heavy, but it fits you better than your own skin. You'd sleep in it if they'd let you.
+You pull your helmet out from under the bottom bunk and tighten it firmly around your skull. Some of your fellow cadets had lost their first helmet, or just chose not to wear it until they had to, but not you. You wore your helmet at all times, because a rider was always prepared.
+Tanis teased you for that some times, made fun of you helmet hair on the choice few times you took it off, but it was the good kind of teasing.
+{DidDream You slide on your boots and hurry down to the mess hall before you can even tighten the laces }
+{DidDream<1 You carefully check your boots before sliding them on. Once the laces are tightened you're ready to start your day }
+#Showered=0#
+~MessHall.txt Head to the mess hall~
+{DidDream<1 ~TakeAWalk.txt Take a walk and enjoy the morning~ 
+~TakeAShower.txt Take a shower, hopefully while there's still hot water~ }

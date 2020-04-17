@@ -15,6 +15,9 @@
 
 
 */
+const std::string AUTOSAVE = "autoSave";
+const std::string failStmnt = "Sorry, unable to open file";
+const std::string CONFIG_FILE_PATH = "./system/config.txt";
 
 void GameManager::listCounters()
 {
@@ -36,12 +39,14 @@ void GameManager::listCounters()
 
 void GameManager::start()
 {
+	check_config();
+	storyDirectory = "";
 	char UserReponce;
 	std::string fileName;
 	bool wrongInput = true;
 
 	std::cout << "Welcome to Paraphrase Text adventure tool v1.0!\n";
-	std::cout << "Please enter a number \n 1. start a new game? \n 2. load a saved game \n Choice : ";
+	std::cout << "Please enter a number \n 1. start a new story? \n 2. load from a specific save \n Choice : ";
 	std::cin >> UserReponce;
 	std::cin.ignore(10000, '\n');
 	std::cin.clear();
@@ -50,21 +55,46 @@ void GameManager::start()
 	{
 		switch (UserReponce)
 		{
+			/*
+		case'1':
+			break;
+			if (Parser.counters.load(AUTOSAVE, currentChapter))
+			{
+				std::cout << AUTOSAVE << " Continuing where you left off...\n";
+				Parser.readOnly = true;
+				runChapter(currentChapter);
+				//wrongInput = false; //This is currently broken as it's being worked on
+			}
+			else
+			{
+				std::cout << AUTOSAVE << " Failed to load (incorrect file name, or impropperly formatted save file)\n";
+				wrongInput = true;
+			}
+			break;
+			*/
 		case '1':
 			wrongInput = false;
-			std::cout << "Please enter the name of the start chapter for the game you would like to run \n file name : ";
+			std::cout << "Please enter the name of the story you would like to run \n Folder name : ";
 			std::cin >> fileName;
+			storyDirectory = "./" + fileName + "/";
+			//fileName = ".//" + fileName + "//" + fileName + ".txt";
 			fileName.append(".txt");
 			runChapter(fileName);
 			break;
 		case '2': //loading save file
-			wrongInput = false;
+			if (storyDirectory == "") //formatted this way because I will later have a "Default story" in the ini.txt file
+			{
+				std::cout << "Please Enter the name of the story you'd like to load: ";
+				std::cin >> storyDirectory;
+				storyDirectory = "./" + storyDirectory + "/";
+			}
 			std::cout << "Please enter the name of your save file: ";
 			std::cin >> fileName;
+			fileName = storyDirectory + "saves/" + fileName;
 			if (Parser.counters.load(fileName, currentChapter))
 			{
 				std::cout << fileName << " Successfully loaded!\n";
-				//Parser.readOnly = true;
+				Parser.readOnly = true;
 				runChapter(currentChapter);
 				wrongInput = false;
 			}
@@ -73,9 +103,10 @@ void GameManager::start()
 				std::cout << fileName << " Failed to load (incorrect file name, or impropperly formatted save file)\n";
 				wrongInput = true;
 			}
-			break;
+			//break; Break was removed so that you don't get stuck in an infinite loop of inputting the wrong file. Asking for the wrong file
+			//will trigger the default condition and kick you back to the main menue
 		default:
-			std::cout << "Sorry you didn't enter 1 or 2. \n \n";
+			//std::cout << "Sorry you didn't enter 1, or 2 \n";
 			std::cout << "Please enter a number \n 1. start a new game? \n 2. load a saved game \n Choice : ";
 			std::cin >> UserReponce;
 			std::cin.ignore(10000, '\n');
@@ -96,7 +127,7 @@ void GameManager::printText(std::string textToPrint )
 	while (strPos < textToPrint.length())
 	{
 		std::cout << textToPrint.at(strPos);
-		std::this_thread::sleep_for(std::chrono::milliseconds(50));
+		std::this_thread::sleep_for(std::chrono::milliseconds(text_speed)); //defaults to 50, turned off for testing
 		strPos++;
 	}
 
@@ -125,8 +156,15 @@ void GameManager::runChapter(std::string filename)
 	currentChapter = filename;
 	Parser.portals.clear();
 	std::string output = "";
-	output = readFile(filename);
+	output = readFile((storyDirectory + filename));
 	printText(Parser.ParseText(output));
+	if (output == failStmnt) //checks to see if you're in a valid chapter, or not
+	{
+		std::cout << " You have reached a dead end and will be returned to the main menu \n";
+		start();
+	}
+	//create autosave here
+	Parser.counters.save((storyDirectory + "/saves/" + AUTOSAVE), currentChapter); 
 	choosePortal();
 }
 
@@ -154,7 +192,6 @@ bool GameManager::isRightType(std::string filePath) // is being moved to counter
 */
 std::string GameManager::readFile(std::string file) //is being moved to counter manager
 {
-	const std::string failStmnt = "Sorry, unable to open file";
 	std::ifstream stream;
 	if (isRightType(file) == true)
 	{
@@ -215,7 +252,7 @@ void GameManager::choosePortal()
 			std::cout << "Please enter the name you'd like to save to: ";
 			//getline(std::cin, save_file_name);
 			std::cin >> save_file_name;
-			if (Parser.counters.save(save_file_name, currentChapter))
+			if (Parser.counters.save((storyDirectory + "saves/" + save_file_name), currentChapter))
 			{
 				std::cout << "\nsucessfully saved to " << save_file_name << "\n";
 				choosePortal();
@@ -233,7 +270,7 @@ void GameManager::choosePortal()
 			std::cout << "Please enter the name of the file you'd like to load: ";
 			//getline(std::cin, save_file_name);
 			std::cin >> save_file_name;
-			if (Parser.counters.load(save_file_name, currentChapter))
+			if (Parser.counters.load((storyDirectory + "saves\\" + save_file_name), currentChapter))
 			{
 				std::cout << "\nsucessfully loaded " << save_file_name << "\n";
 				//set read only flag
@@ -266,6 +303,41 @@ void GameManager::choosePortal()
 		choosePortal();
 	}
 
+}
+
+void GameManager::check_config()
+{
+	std::ifstream instream;
+	instream.open(CONFIG_FILE_PATH);
+	if (instream.good())
+	{
+		std::string setting_name;
+		std::getline(instream, setting_name);
+		instream >> text_speed;
+	}
+	else
+	{
+		std::cout << "configuration file not found, creating a new one\n";
+		format_config();
+		check_config(); //this is a little recursive... probably a bit risky
+	}
+}
+
+void GameManager::format_config()
+{
+	std::ofstream outstream;
+	outstream.open(CONFIG_FILE_PATH);
+	if (outstream.good())
+	{
+		outstream << "Text_Speed\n"
+			<< 50; //default text speed
+		//more settings will be added as I encounter more use cases
+		outstream.close();
+	}
+	else
+	{
+		std::cout << "failed to create an config file \n";
+	}
 }
 
 

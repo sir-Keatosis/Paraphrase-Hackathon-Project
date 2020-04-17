@@ -1,0 +1,2 @@
+Text_speed
+50

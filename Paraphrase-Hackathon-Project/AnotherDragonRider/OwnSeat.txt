@@ -1,0 +1,13 @@
+You sit firmly and safely on the right side of the mess hall. #Connotation-1# #SpokeWithKyle=1#
+In between taking bites of mediocre scrambled eggs you find yourself looking out the window
+at Tanis and her friends.
+"Whacha lookin' at there, fella?" you hear a loud and bombastic voice from beside you.
+You thought you were sitting alone. 
+He's a little shorter than you, but doesn't carry himself that way.
+He presents a fingerless-gloved hand.
+"The name's Kyle, Kyle Siahttam," he says with a wide smile.
+You accept his handshake.
+"Uh... nice to meet you, I'm [FirstName] [LastName] and I was just..."
+
+~TellKyleTruth.txt "Looking at my friend out on the deck"~
+~TellKyleLie.txt "Looking at the dragons come out of their nest"~

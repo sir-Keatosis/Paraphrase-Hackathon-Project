@@ -1,0 +1,9 @@
+You head down to the showers, it's always a gamble with these.
+Despite the strict four minute limit there are always the few people
+who wake up hours before anyone else just to get their shower in. 
+Both the boy's and girl's showers draw from the same heater, and both sides
+love to accuse the other of hogging all the hot water.
+Unfortunately your hot water runs out half way through.
+You emerge shivering, but clean. #Showered=1#
+
+~MessHall.txt head to the mess hall~

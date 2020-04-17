@@ -1,0 +1,16 @@
+Kyle lets out an amused chuckle {DidDream 
+ "Kinda wish my freinds looked at me the way you do at her, but whatever"}
+You can't help but roll your eyes.
+{DidDream<1 "Honestly," you say, "We're just friends. I haven't felt 'that way' about anyone since I was in school" #KyleAffection+1# } {DidDream=1 "I get it," Kyle says, "Not everyone's got that kinda confidence. I'll drop it for now if you want" }
+Kyle crunches loudly on his bean tost before speaking up once more.
+"Now correct me if I'm wrong, but did you say your last name was [LastName] ?" Kyle asks.
+You nod your head.
+"Incredible," Kyle remarks, "You know, I think I speak for everyone here when I say we're so glad to have another [LastName] with us.
+I mean, I've only heard stories, but if any of them are true you're destined for greatness my man."
+"I've never heard those stories," You admit.
+"Ah, yeah, makes sense, yeah... well they're good stories so maybe I'll catch you up some time," he offeres.
+You feel slightly uncomfortable that he knows more about your grandfather than you do, but you take him up on his offer.
+"I'll see you around, [FirstName] " he says, finishing his meal and getting up from his seat.
+
+~FinishBreakfast.txt You finish your meal alone~ 
+{DidDream ~SitWithTanis.txt Go sit with Tanis~ }

@@ -1,0 +1,9 @@
+You dig in to your breakfast. It's not the best, but you're hungry. {TanisAffection 
+"They never give us enough Bacon, I swear," Tanis Laments.
+You look down at your plate and see, delicous uneaten strips you'd been saving for last. }
+{TanisAffection<1
+While the eggs and beans aren't that good, the bacon really makes up for it. }
+{TanisAffection ~GiveBacon.txt Offer your bacon to Tanis~
+~FetchBacon.txt Offer to go back and get her secconds~
+~FinishBreakfast.txt Eat your own bacon before Tanis gets any ideas~ }
+{TanisAffection<1 ~FinishBreakfast.txt Finish your meal~ }

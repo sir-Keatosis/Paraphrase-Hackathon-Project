@@ -1,0 +1,16 @@
+You head out on to the deck and quickly but gracefully slide on to the bench near Tanis {SpokeWithKyle 
+"That's the spirit," you hear Kyle shout after you awkardly }
+#conotation+1# 
+"Is it alright if I sit here?" you ask, even though you'd already planted yourself firmly in you seat
+"Yeah, of course," she replies.
+One of her friends gives you a judgmental look, but you choose to ingore her.
+Tanis yawns as she looks out over the canyon. The dragons were just starting to wake up.
+They looked as small as insects from this distance as they took off from their nest, but they were so much larger up close.
+"How'd you sleep?" you ask.
+"Like a rock," she laughs, "I was having this great dream and then Trish just haaaad to wake me up."
+"We were going to miss the showers," Trish protests.
+"I know, I forive you," Tanis jokes.
+{Showered<1 You can't help but feel a little self concious about not showering this morning {DidDream<1 especially because you had the time #TanisAffection-1# } }
+~TanisDream.txt ask Tanis about her dream~
+{DidDream ~ExplainDream.txt Tell Tanis about your dream~ }
+~EatBreakfast.txt Just eat your food~

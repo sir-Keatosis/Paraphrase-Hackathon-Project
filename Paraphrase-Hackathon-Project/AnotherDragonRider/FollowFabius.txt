@@ -1,0 +1,11 @@
+A group of about 24 cadets forms around Fabius. What remains of Pine Class.
+The last run on the simulator had put the other half of Pine Class in the hospital and made
+Fabius reconsider his "No straps" policy. You didn't even get to try the simulator that time...
+"We have a long hike ahead of us," Fabius declares, his stoic athority cutting through the palpable 
+stress of the cadets that follow him. You push to be in the front of the pack, you want to be first in line.
+Riders aren't afraid, Riders face challenges head on, and a surprisingly small number of riders die from falling
+off their dragons so you should be fine!
+Tanis lingers near the tail of the pack as the group makes their way out from the shade of the camp and across the 
+arid terrain along the canyon. You can tell the simulator has been stressing her out, she stares straight ahead.
+~HikeComfortTanis.txt Walk with Tanis and try to comfort her~
+~HikeNotComfortTanis.txt Maintain your place at the front of the pack~

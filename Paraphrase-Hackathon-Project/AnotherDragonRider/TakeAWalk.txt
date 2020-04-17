@@ -1,0 +1,25 @@
+The air smells young.
+The sun is bright, but everything is still cool.
+The pine trees that grow sporatically among the dusty red rocks sway in the breeze.
+It's going to be a windy day, which is worrying, but nothing you can't handle.
+You've been training for this, it's been months now, maybe years, you weren't counting.
+Really the training started when you saw those photographs of your grandfather.
+If you had rider blood then you could be a rider, regardless of what your parents said.
+They could only stop you from going to the academy for so long. Once the recruiters knew you 
+were the grandson of [LastName] the great they took you with open arms.
+He was such a great man, they didn't even bother to know his first name.
+
+You stroll down from the boy's cabbins down towards the bench by the lamp post.
+You can see the edge of the canyon from here, and beyond. Far off in the distance is their nest.
+It almost looks like a castle from here, but human hands did not carve those walls.
+People shuffle around and between the paths and buildings below you, some on the very canyon's edge.
+They are riders, you can just tell by the way they moved. Walking with such ease mere feet, maybe inches
+from that perelous plumet. Yes they were human, but they didn't move like it. They were something
+else, something above human. You would be too, soon at least. You had a cadet's uniform for now, 
+and there was no shame in that. You were walking the path, and you'd get there eventually.
+
+You heard footsteps scrape against the sand behind you. Turning around you can see a small group of
+cadets heading to the mess hall. You recognize Tanis and some of her bunk mates. It's probably too late
+to approach them, but you can probably catch up with them at the mess hall.
+
+~MessHall.txt head to the mess hall~

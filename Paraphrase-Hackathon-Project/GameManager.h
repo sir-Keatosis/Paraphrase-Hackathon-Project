@@ -15,12 +15,16 @@ class GameManager
 		void setPortal(std::string fileName, std::string displayText);
 		void choosePortal();
 		void runChapter(std::string filename);
-		std::string readFile(std::string file); //is being moved to counter manage
-		bool isRightType(std::string filePath); //is being moved to counter manager
+		std::string readFile(std::string file); 
+		bool isRightType(std::string filePath); 
 		void printText(std::string textToPrint);
 		void listCounters();
 		std::string currentChapter;
+		std::string storyDirectory;
 		TextParser Parser;
 	private:
+		int text_speed;
+		void check_config(); //used to modify the config file
+		void format_config(); //used to create a new config file if one is not already detected
 };
 

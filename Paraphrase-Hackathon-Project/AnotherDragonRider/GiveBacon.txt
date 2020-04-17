@@ -1,0 +1,18 @@
+"Here, you can have some of mine," you offer.
+"Are you sure?" Tanis asks.
+"Eh, I don't like bacon that much, it's fine," you lie.
+"Thats bs, [FirstName] and you know it," Tanis teases.
+You can't help but blush.
+"Here, I'll take half," Tanis offers, taking two of your strips and splitting one in half
+before handing it back to you.
+"I know you like bacon, man, you can't hide that from me," she scolds.
+#Connotation+1# #TanisAffection+2#
+With the sound of leather boots on the dusty wooden boards of the deck Fabius makes his presence known.
+"All cadets, rise," He commands in his booming voice.
+Trays clatter and benches scrape as the whole deck stands up, soon followed by those in the hall.
+"I'll be taking pine class, the rest of you can return to your meal," Fabius declared, and most of the cadets sat back down.
+Not you and Tannis though, the green stripe on your uniform proudly anounced that you were part of pine class.
+One of Tanis' friends let out a frustrated sigh, "He always takes your group, that means we're gonna have to be with Ryan".
+A group was forming fast, and Fabius didn't like to waste time.
+"Let's go" you say.
+~FollowFabius.txt Follow Fabius~

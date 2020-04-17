@@ -24,7 +24,6 @@ void testLoading();
 
 int main()
 {
-	//std::cout << ".\saves\\" << std::endl; //used for testing, not important
 	GameManager gameManger;
 	//testLoading();
 	gameManger.start();

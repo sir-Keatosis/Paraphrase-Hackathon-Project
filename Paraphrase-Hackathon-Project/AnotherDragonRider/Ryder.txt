@@ -1,0 +1,6 @@
+You have chosen
+|FirstName=Ryder| |LastName=Belile| #nameNumber=3#
+Time to wake up, [FirstName]. The world will not wait for you
+~ChooseName.txt I'm not satisfied with my choice~
+~Dream.txt dream a little longer~
+~Awaken.txt try to wake up~

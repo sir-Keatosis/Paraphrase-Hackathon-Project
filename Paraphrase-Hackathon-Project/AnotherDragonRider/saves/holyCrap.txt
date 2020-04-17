@@ -1,0 +1,8 @@
+Kynan.txt
+NUMBERS
+DidDream 0
+nameNumber 1
+STRINGS
+FirstName Kynan
+LastName Sultellen
+DONE

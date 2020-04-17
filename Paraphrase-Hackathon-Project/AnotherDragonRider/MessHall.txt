@@ -1,0 +1,20 @@
+You hear the morning bugel start just as you head in to the doors to the mess hall.
+It's already up and bustling. The tables on the inside are filling up quickly,
+but there is still some space on deck. You get in line and load up your tray.
+Bacon, eggs, and beans on toast. Beans are pretty much a constant here, served with every meal.
+Mainly because they're light and easy to trasport this far into the mountains, and allegedly
+they stay down pretty well. If the riders liked them that was enough for you to like them too.
+...
+Even if the cooks do make them kind of bland.
+
+The mess hall is devided down the middle, boys on the left, girls on the right. Sort of an old
+tradition that was falling out of favor with the newer cadets and staff. Most of the people who
+still followed the rule did it out of respect for tradition, rather than any personal belife in
+the practice. There are a few covetted seats that fill up quickly, the ones that run down the middle.
+A spot where the boys can eat with the girls without breaking tradition. The seats are covetted,
+but of course they also come with a connotation.
+Out the window you can see Tanis and her group of friends sitting out on the deck, right on the threshold
+between the two sides.
+
+~OwnSeat.txt find your own seat~
+~SitWithTanis.txt try to sit with Tanis~
