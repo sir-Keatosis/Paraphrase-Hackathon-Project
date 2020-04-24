@@ -1,7 +1,0 @@
-Hello you wake up in the dark 
-
-but you can feel #key=5# [key] keys in your pocket.
-
-~rummageAround.txt Rummage around in the dark~ 
-~CheckPockets.txt Check your pockets for other things~ 
-~sleep.txt laydown and try to sleep~ 

@@ -1,5 +1,0 @@
-you look on your desk and find a walet with $20 in it and next to it 2 keys.
-
-~takeall.txt you take the money and keys~ 
-~lookincloest.txt check cloest for items~ 
-~Opendoor.txt Open door and walk out~

@@ -1,0 +1,8 @@
+TestMultiVariables.txt
+NUMBERS
+Buzz 10
+Fizz 10
+FizzPlus 6
+FizzPlus2 5
+STRINGS
+DONE

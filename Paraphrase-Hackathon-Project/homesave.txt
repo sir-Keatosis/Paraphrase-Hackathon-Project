@@ -1,4 +1,0 @@
-takeall.txt
-NUMBERS
-STRINGS
-DONE

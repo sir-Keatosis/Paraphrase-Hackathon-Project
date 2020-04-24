@@ -1,12 +1,4 @@
-FollowFabius.txt
+AnotherDragonRider.txt
 NUMBERS
-DidDream 1
-Doom 1
-Showered 0
-TanisAffection -1
-conotation 1
-nameNumber 1
 STRINGS
-FirstName Arthur
-LastName Arabash
 DONE

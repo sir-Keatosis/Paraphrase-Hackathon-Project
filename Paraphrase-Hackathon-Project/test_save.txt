@@ -1,8 +1,0 @@
-The magical Ball world
-NUMBERS
-one 1
-three 1
-two 1
-STRINGS
-name Barlo
-DONE

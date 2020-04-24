@@ -1,6 +1,0 @@
-you walk over to your cloest and change out of your Pjs and into a white t-shrit and jeans. You notice a backpack, a chest, and a dufful bag.
-
-~takebackpack.txt you take the backpack~
-~OpenduffulBag.txt you open the dufful bag~
-~checkchest.txt you check the chest~
-~Opendoor.txt Open door and walk out~ 

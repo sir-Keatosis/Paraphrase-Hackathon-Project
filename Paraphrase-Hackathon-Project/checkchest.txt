@@ -1,7 +1,0 @@
-you pull out this chest thats been sitting there since before you move in to this apartment.
-
-... you feel strange as you pull out the chest.
-
-~Openchest.txt you try to open the chest and it has a lock on it~
-~takebackpack.txt you take the backpack~
-~Opendoor.txt Opendoor and walk out~

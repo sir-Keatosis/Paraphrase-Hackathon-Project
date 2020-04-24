@@ -1,0 +1,3 @@
+Here goes nothing, check the save file #Fizz=Buzz# #FizzPlus+FizzPlus2#
+
+~TestStory.txt return home~

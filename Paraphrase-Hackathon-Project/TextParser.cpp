@@ -265,75 +265,185 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 			offset++;
 			value_mod = 0; //new temporary variable that holds the value that the number counter is being set to
 			iterations = 0; //new temporary variable that can handle multiple digits
-			while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '#')
-			{
-				value_mod = (value_mod * (10 * iterations)) + ((unParse->at(stringPos + offset) - '0')); //gonna need to do some check within stuff here for multi variable maths
-				iterations++;
-				offset++;
+			if (isdigit(unParse->at(stringPos + offset))) //if character after the equals sign is a numeral then do regular modification
+			{//                                                                but if not then do multivariable operation
+				while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '#')
+				{
+					value_mod = (value_mod * (10 * iterations)) + ((unParse->at(stringPos + offset) - '0')); //gonna need to do some check within stuff here for multi variable maths
+					iterations++;
+					offset++;
+				}
+				if (!readOnly)
+				{
+					counters.number_counter_equals(variable, value_mod);
+				}
 			}
-			if (!readOnly)
+			else //multi variable operation
 			{
-				counters.number_counter_equals(variable, value_mod);
+				while (unParse->at(stringPos + offset) != '#')
+				{
+					variable2 += unParse->at(stringPos + offset);
+					offset++;
+				}
+				if (!readOnly)
+				{
+					if (counters.check_number_counter(variable2))
+					{
+						counters.number_counter_equals(variable, counters.get_number_counter(variable2));
+					}
+					else //sets it to zero if the variable does not exist
+					{
+						counters.number_counter_equals(variable, 0);
+					}
+				}
 			}
 			break;
 		case'+':
 			offset++;
 			value_mod = 0; //new temporary variable that holds the value that the number that is added to the counter
 			iterations = 0; //new temporary variable that can handle multiple digits
-			while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '#')
+			if (isdigit(unParse->at(stringPos + offset)))
 			{
-				value_mod = (value_mod * (10 * iterations)) + ((unParse->at(stringPos + offset) - '0')); //gonna need to do some check within stuff here for multi variable maths
-				offset++;
-				iterations++;
+				while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '#')
+				{
+					value_mod = (value_mod * (10 * iterations)) + ((unParse->at(stringPos + offset) - '0')); //gonna need to do some check within stuff here for multi variable maths
+					offset++;
+					iterations++;
+				}
+				if (!readOnly)
+				{
+					counters.number_counter_add(variable, value_mod);
+				}
 			}
-			if (!readOnly)
+			else //multi variable operation
 			{
-				counters.number_counter_add(variable, value_mod);
+				while (unParse->at(stringPos + offset) != '#')
+				{
+					variable2 += unParse->at(stringPos + offset);
+					offset++;
+				}
+				if (!readOnly)
+				{
+					if (counters.check_number_counter(variable2))
+					{
+						counters.number_counter_add(variable, counters.get_number_counter(variable2));
+					}
+					else //sets it to zero if the variable does not exist
+					{
+						counters.number_counter_add(variable, 0);
+					}
+				}
 			}
 			break;
 		case'-':
 			offset++;
 			value_mod = 0; //new temporary variable that holds the value that the number counter is being set to
 			iterations = 0; //new temporary variable that can handle multiple digits
-			while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '#')
+			if (isdigit(unParse->at(stringPos + offset)))
 			{
-				value_mod = (value_mod * (10 * iterations)) + ((unParse->at(stringPos + offset) - '0')); //gonna need to do some check within stuff here for multi variable maths
-				iterations++;
-				offset++;
+				while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '#')
+				{
+					value_mod = (value_mod * (10 * iterations)) + ((unParse->at(stringPos + offset) - '0')); //gonna need to do some check within stuff here for multi variable maths
+					iterations++;
+					offset++;
+				}
+				if (!readOnly)
+				{
+					counters.number_counter_subtract(variable, value_mod);
+				}
 			}
-			if (!readOnly)
+			else //multi variable operation
 			{
-				counters.number_counter_subtract(variable, value_mod);
+				while (unParse->at(stringPos + offset) != '#')
+				{
+					variable2 += unParse->at(stringPos + offset);
+					offset++;
+				}
+				if (!readOnly)
+				{
+					if (counters.check_number_counter(variable2))
+					{
+						counters.number_counter_subtract(variable, counters.get_number_counter(variable2));
+					}
+					else //sets it to zero if the variable does not exist
+					{
+						counters.number_counter_subtract(variable, 0);
+					}
+				}
 			}
 			break;
 		case'*':
 			offset++;
 			value_mod = 0; //new temporary variable that holds the value that the number counter is being multiplied by
 			iterations = 0; //new temporary variable that can handle multiple digits
-			while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '#')
+			if (isdigit(unParse->at(stringPos + offset)))
 			{
-				value_mod = (value_mod * (10 * iterations)) + ((unParse->at(stringPos + offset) - '0')); //gonna need to do some check within stuff here for multi variable maths
-				iterations++;
-				offset++;
+				while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '#')
+				{
+					value_mod = (value_mod * (10 * iterations)) + ((unParse->at(stringPos + offset) - '0')); //gonna need to do some check within stuff here for multi variable maths
+					iterations++;
+					offset++;
+				}
+				if (!readOnly)
+				{
+					counters.number_counter_multiply(variable, value_mod);
+				}
 			}
-			if (!readOnly)
+			else //multi variable operation
 			{
-				counters.number_counter_multiply(variable, value_mod);
+				while (unParse->at(stringPos + offset) != '#')
+				{
+					variable2 += unParse->at(stringPos + offset);
+					offset++;
+				}
+				if (!readOnly)
+				{
+					if (counters.check_number_counter(variable2))
+					{
+						counters.number_counter_multiply(variable, counters.get_number_counter(variable2));
+					}
+					else //sets it to zero if the variable does not exist
+					{
+						counters.number_counter_multiply(variable, 0);
+					}
+				}
 			}
 			break;
 		case'/':
 			offset++;
 			value_mod = 0; //new temporary variable that holds the value that the number counter is being divided by
 			iterations = 0; //new temporary variable that can handle multiple digits
-			while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '#')
+			if (isdigit(unParse->at(stringPos + offset)))
 			{
-				value_mod = (value_mod * (10 * iterations)) + ((unParse->at(stringPos + offset) - '0')); //gonna need to do some check within stuff here for multi variable maths
-				iterations++;
-				offset++;
+				while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '#')
+				{
+					value_mod = (value_mod * (10 * iterations)) + ((unParse->at(stringPos + offset) - '0')); //gonna need to do some check within stuff here for multi variable maths
+					iterations++;
+					offset++;
+				}
+				if (!readOnly)
+				{
+					counters.number_counter_divide(variable, value_mod);
+				}
 			}
-			if (!readOnly)
+			else //multi variable operation
 			{
-				counters.number_counter_divide(variable, value_mod);
+				while (unParse->at(stringPos + offset) != '#')
+				{
+					variable2 += unParse->at(stringPos + offset);
+					offset++;
+				}
+				if (!readOnly)
+				{
+					if (counters.check_number_counter(variable2))
+					{
+						counters.number_counter_divide(variable, counters.get_number_counter(variable2));
+					}
+					else //sets it to zero if the variable does not exist
+					{
+						counters.number_counter_divide(variable, 0);
+					}
+				}
 			}
 			break;
 		default:
