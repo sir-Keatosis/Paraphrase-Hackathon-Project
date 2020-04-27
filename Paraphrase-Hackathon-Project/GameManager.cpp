@@ -297,14 +297,16 @@ void GameManager::choosePortal() //This function is probably too big, but it wor
 		}
 		else if (userInput == "c" or userInput == "C") //Later cheats will have to be enabled in the config file
 		{
-			while (userInput != "1")  
+			if (cheats)
 			{
-				std::cout << "--=={[DEBUG MENUE]}==-- \n"
-					<< " 1. return to the story \n 2. list all counters \n 3. edit counter \n";
-				std::cin >> userInput;
-				std::string userInput2;
-				switch (userInput.at(0))
+				while (userInput != "1")
 				{
+					std::cout << "--=={[DEBUG MENUE]}==-- \n"
+						<< " 1. return to the story \n 2. list all counters \n 3. edit counter \n";
+					std::cin >> userInput;
+					std::string userInput2;
+					switch (userInput.at(0))
+					{
 					case'1':
 						break;
 					case'2':
@@ -344,7 +346,18 @@ void GameManager::choosePortal() //This function is probably too big, but it wor
 						break;
 					default:
 						break;
+					}
 				}
+			}
+			else
+			{
+				//I am conflicted about having this error message
+				//on the one hand there could be a value in hiding the cheat system so that people aren't tempted to use it
+				//on the other hand save files are easy enough to edit as it is, so this might as well be explained
+				//But then why are cheats gated behind a setting in the config?
+				//Simple, just to demonstrate the new open ended config code
+				std::cout << "You have attempted to open the Cheat/Debug menue, but cheats are dissabled for this session\n"
+					<< "To enable the debug menue, open the config.txt in the system folder and add the line 'Cheats' then restart, the program\n";
 			}
 			choosePortal();
 		}
@@ -376,8 +389,20 @@ void GameManager::check_config()
 	if (instream.good())
 	{
 		std::string setting_name;
-		std::getline(instream, setting_name);
-		instream >> text_speed;
+		while (instream.good())
+		{
+			std::getline(instream, setting_name);
+			if (setting_name == "Text_Speed")
+			{
+				instream >> text_speed;
+			}
+			if (setting_name == "Cheats")
+			{
+				std::cout << "Debug/Cheat tools have been enabled ;)\n";
+				cheats = true;
+			}
+		}
+		instream.close();
 	}
 	else
 	{
@@ -395,6 +420,7 @@ void GameManager::format_config()
 	{
 		outstream << "Text_Speed\n"
 			<< 50; //default text speed
+		//cheats/debug are dissabled by default and need to be added into the config manually
 		//more settings will be added as I encounter more use cases
 		outstream.close();
 	}

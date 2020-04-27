@@ -1,2 +1,3 @@
-Text_speed
+Text_Speed
 50
+Cheats

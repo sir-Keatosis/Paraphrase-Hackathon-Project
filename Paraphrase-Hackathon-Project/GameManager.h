@@ -23,8 +23,11 @@ class GameManager
 		std::string storyDirectory;
 		TextParser Parser;
 	private:
+		//Settings and config stuff: ==============================================================
 		int text_speed;
+		bool cheats;
 		void check_config(); //used to modify the config file
 		void format_config(); //used to create a new config file if one is not already detected
+		//=========================================================================================
 };
 
