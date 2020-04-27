@@ -106,7 +106,6 @@ void GameManager::start()
 			//break; Break was removed so that you don't get stuck in an infinite loop of inputting the wrong file. Asking for the wrong file
 			//will trigger the default condition and kick you back to the main menue
 		default:
-			//std::cout << "Sorry you didn't enter 1, or 2 \n";
 			std::cout << "Please enter a number \n 1. start a new game? \n 2. load a saved game \n Choice : ";
 			std::cin >> UserReponce;
 			std::cin.ignore(10000, '\n');
@@ -222,7 +221,7 @@ std::string GameManager::readFile(std::string file) //is being moved to counter 
 }
 
 
-void GameManager::choosePortal()
+void GameManager::choosePortal() //This function is probably too big, but it works and I am afraid to tear it appart 
 {
 	std::string userInput;
 	Portal portal;
@@ -283,6 +282,71 @@ void GameManager::choosePortal()
 				choosePortal();
 			}
 
+		}
+		else if (userInput == "q" or userInput == "Q") //Quit the program
+		{
+			std::cout << "Thank You for playing \n Shutting down";
+			std::this_thread::sleep_for(std::chrono::milliseconds(100));
+			std::cout << ".";
+			std::this_thread::sleep_for(std::chrono::milliseconds(100));
+			std::cout << ".";
+			std::this_thread::sleep_for(std::chrono::milliseconds(100));
+			std::cout << ".";
+			std::this_thread::sleep_for(std::chrono::milliseconds(100));
+			exit(0);
+		}
+		else if (userInput == "c" or userInput == "C") //Later cheats will have to be enabled in the config file
+		{
+			while (userInput != "1")  
+			{
+				std::cout << "--=={[DEBUG MENUE]}==-- \n"
+					<< " 1. return to the story \n 2. list all counters \n 3. edit counter \n";
+				std::cin >> userInput;
+				std::string userInput2;
+				switch (userInput.at(0))
+				{
+					case'1':
+						break;
+					case'2':
+						listCounters();
+						break;
+					case'3': //okay here it's getting serious
+						std::cout << "enter DONE to return to the debug/cheat menue \n";
+						while (userInput != "DONE")
+						{
+							std::cout << "enter the name of the counter you would like to add/modify: ";
+							std::cin >> userInput;
+							if (userInput == "DONE" or userInput == "done")
+							{
+								break;
+							}
+							if (isdigit(userInput.at(0)))
+							{
+								std::cout << "counter names are not allowed to START with digits\n";
+							}
+							else
+							{
+								std::cout << "\nenter the name of the value for " << userInput << ": ";
+								std::cin >> userInput2;
+								if (isdigit(userInput2.at(0)) or userInput2.at(0) == '-')//determines if this will be a string counter or a number counter
+								{
+									//This means it's a number counter
+									Parser.counters.number_counter_equals(userInput, std::stoi(userInput2));
+								}
+								else
+								{
+									//this means it's a string counter
+									Parser.counters.set_string_counter(userInput, userInput2);
+								}
+							}
+
+						}
+						break;
+					default:
+						break;
+				}
+			}
+			choosePortal();
 		}
 		else if (found != std::string::npos)
 		{
