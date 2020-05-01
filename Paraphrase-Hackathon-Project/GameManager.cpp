@@ -45,39 +45,35 @@ void GameManager::start()
 	std::string fileName;
 	bool wrongInput = true;
 
+	if (autorun != "NONE") //AutoRun code goes here, if this fails it continues as normal
+	{
+		storyDirectory = "./" + autorun + "/";
+		if (Parser.counters.load((storyDirectory + "saves/autoSave.txt"), currentChapter))
+		{
+			Parser.readOnly = true;
+			runChapter(currentChapter);
+			wrongInput = false;
+		}
+		else
+		{
+			storyDirectory = "./" + autorun + "/";
+			runChapter(autorun + ".txt");
+		}
+	}
 	std::cout << "Welcome to Paraphrase Text adventure tool v1.0!\n";
 	std::cout << "Please enter a number \n 1. start a new story? \n 2. load from a specific save \n Choice : ";
 	std::cin >> UserReponce;
 	std::cin.ignore(10000, '\n');
 	std::cin.clear();
-
 	while (wrongInput)
 	{
 		switch (UserReponce)
 		{
-			/*
-		case'1':
-			break;
-			if (Parser.counters.load(AUTOSAVE, currentChapter))
-			{
-				std::cout << AUTOSAVE << " Continuing where you left off...\n";
-				Parser.readOnly = true;
-				runChapter(currentChapter);
-				//wrongInput = false; //This is currently broken as it's being worked on
-			}
-			else
-			{
-				std::cout << AUTOSAVE << " Failed to load (incorrect file name, or impropperly formatted save file)\n";
-				wrongInput = true;
-			}
-			break;
-			*/
 		case '1':
 			wrongInput = false;
 			std::cout << "Please enter the name of the story you would like to run \n Folder name : ";
 			std::cin >> fileName;
 			storyDirectory = "./" + fileName + "/";
-			//fileName = ".//" + fileName + "//" + fileName + ".txt";
 			fileName.append(".txt");
 			runChapter(fileName);
 			break;
@@ -386,6 +382,7 @@ void GameManager::check_config()
 {
 	std::ifstream instream;
 	instream.open(CONFIG_FILE_PATH);
+	autorun = "NONE";
 	if (instream.good())
 	{
 		std::string setting_name;
@@ -400,6 +397,10 @@ void GameManager::check_config()
 			{
 				std::cout << "Debug/Cheat tools have been enabled ;)\n";
 				cheats = true;
+			}
+			if (setting_name == "Auto_Run")
+			{
+				instream >> autorun;
 			}
 		}
 		instream.close();
