@@ -1,5 +1,4 @@
 Text_Speed
 50
+Auto_Save
 Cheats
-//Auto_Run
-TestStory

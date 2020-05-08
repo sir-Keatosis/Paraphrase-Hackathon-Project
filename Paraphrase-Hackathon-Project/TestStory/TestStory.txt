@@ -1,3 +1,4 @@
 Welcome to the test world! #Fizz=4# #Buzz=10# #FizzPlus=1# #FizzPlus2=5#
 
 ~TestMultiVariables.txt test multi-variable operations~
+~TestRandom.txt test the psuedo random system~

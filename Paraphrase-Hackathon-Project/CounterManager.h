@@ -19,6 +19,7 @@ public:
 	void set_string_counter(std::string name, std::string value); //sets the value of a tracked string if it already exists, creates a new counter if it does not
 	bool save(std::string file_name, std::string & my_game); //used for saving //returns false if the file did not sucessfully save
 	bool load(std::string file_name, std::string & my_game); //used for loading from a save file //has the side effect of loading from the save file, returns the loaded chapter to the game manager when called
+	void initialize_random(); //used to make random elements work, has to be called on startup or on load
 	std::map<std::string, int> number_counters; //all of your number varriable names and values
 	std::map<std::string, std::string> string_counters; //all of your text variable names and values
 private:

@@ -3,6 +3,7 @@
 #include "Portal.h"
 #include <string>
 
+//check out Antler
 
 /*
 	takes an unedited chapter and evaulates all offical sytex with correct values.
@@ -446,6 +447,46 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 				}
 			}
 			break;
+		case'?': //this is how random number generation works
+			offset++;
+			value_mod = 0; //new temporary variable that holds the value that the number counter is being divided by
+			iterations = 0; //new temporary variable that can handle multiple digits
+			if (isdigit(unParse->at(stringPos + offset)))
+			{
+				while (unParse->at(stringPos + offset) != ' ' and unParse->at(stringPos + offset) != '#')
+				{
+					value_mod = (value_mod * (10 * iterations)) + ((unParse->at(stringPos + offset) - '0')); //gonna need to do some check within stuff here for multi variable maths
+					iterations++;
+					offset++;
+				}
+				if (!readOnly)
+				{
+					counters.number_counter_equals(variable, rand()%value_mod);
+					counters.number_counter_add("random_iterations", 1);
+				}
+			}
+			else //multi variable operation
+			{
+				while (unParse->at(stringPos + offset) != '#')
+				{
+					variable2 += unParse->at(stringPos + offset);
+					offset++;
+				}
+				if (!readOnly)
+				{
+					if (counters.check_number_counter(variable2))
+					{
+						counters.number_counter_equals(variable, rand()%counters.get_number_counter(variable2));
+						counters.number_counter_add("random_iterations", 1);
+					}
+					else //I am really not sure what to do for a default case here... I guess it will default between 0 and 1
+					{
+						counters.number_counter_equals(variable, rand()%2); //not super happy with this solution, but we'll have to live with it
+						counters.number_counter_add("random_iterations", 1);
+					}
+				}
+			}
+			break;
 		default:
 			variable += unParse->at(stringPos + offset);
 			offset++;
@@ -454,7 +495,6 @@ void TextParser::modify_counter(std::string* unParse, int stringPos)
 	}
 	unParse->replace(stringPos - 1, offset + 2, "");
 }
-
 	
 
 

@@ -25,7 +25,9 @@ class GameManager
 	private:
 		//Settings and config stuff: ==============================================================
 		int text_speed;
+		unsigned int random_seed;
 		bool cheats;
+		bool autosave;
 		std::string autorun; //If this is defined then it will automatically open this story story when the game boots up
 		void check_config(); //used to modify the config file
 		void format_config(); //used to create a new config file if one is not already detected

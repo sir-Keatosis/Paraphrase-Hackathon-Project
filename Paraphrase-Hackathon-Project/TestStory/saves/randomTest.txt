@@ -1,0 +1,10 @@
+TestRandom.txt
+NUMBERS
+Buzz 61
+Fizz 587
+FizzPlus 1
+FizzPlus2 5
+random_iterations 6
+seed 14
+STRINGS
+DONE

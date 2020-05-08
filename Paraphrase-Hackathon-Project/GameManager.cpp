@@ -159,7 +159,10 @@ void GameManager::runChapter(std::string filename)
 		start();
 	}
 	//create autosave here
-	Parser.counters.save((storyDirectory + "/saves/" + AUTOSAVE), currentChapter); 
+	if (autosave)
+	{
+		Parser.counters.save((storyDirectory + "/saves/" + AUTOSAVE), currentChapter);
+	}
 	choosePortal();
 }
 
@@ -383,6 +386,7 @@ void GameManager::check_config()
 	std::ifstream instream;
 	instream.open(CONFIG_FILE_PATH);
 	autorun = "NONE";
+	random_seed = 0;
 	if (instream.good())
 	{
 		std::string setting_name;
@@ -402,6 +406,16 @@ void GameManager::check_config()
 			{
 				instream >> autorun;
 			}
+			if (setting_name == "Random_Seed")
+			{
+				instream >> random_seed;
+				Parser.counters.number_counter_equals("seed", random_seed);
+				Parser.counters.initialize_random();
+			}
+			if (setting_name == "Auto_Save")
+			{
+				autosave = true;
+			}
 		}
 		instream.close();
 	}
@@ -420,7 +434,8 @@ void GameManager::format_config()
 	if (outstream.good())
 	{
 		outstream << "Text_Speed\n"
-			<< 50; //default text speed
+			<< 50  //default text speed
+			<< "\nAuto_Save";
 		//cheats/debug are dissabled by default and need to be added into the config manually
 		//more settings will be added as I encounter more use cases
 		outstream.close();

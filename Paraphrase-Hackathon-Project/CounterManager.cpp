@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include "CounterManager.h"
+#include <time.h>
 
 
 CounterManager::CounterManager()
@@ -203,6 +204,7 @@ bool CounterManager::load(std::string file_name, std::string & my_game) //Curren
 			string_counters = temp_strings;
 			my_game = temp_chapter;
 			input.close();
+			initialize_random();
 			return true;
 		}
 		if (mode == 1) //for reading in string variables
@@ -242,6 +244,26 @@ bool CounterManager::load(std::string file_name, std::string & my_game) //Curren
 				i++;
 			}
 			temp_numbers.insert_or_assign(counter_name, std::stoi(counter_value));
+		}
+	}
+}
+
+void CounterManager::initialize_random()
+{
+	int random_count = get_number_counter("random_iterations"); //how I'm going to make the iterations persist across save files
+	if (get_number_counter("seed") == 0) //the special case for if the random seed was not specified in the config file
+	{
+		srand(time(NULL)); //The internet said this would work, let's hope it does
+		number_counter_equals("seed", rand() % 500); //creates a seed if one does not already exist
+	}
+	else
+	{
+		srand(get_number_counter("seed"));
+		for (int i = 0; i < random_count; i++) //this is my workaround for having random seeds persist through saving
+		{
+			rand(); //every time a random operation is performed this value is updated, then on an initialization the random function is called that many times
+					//this could potencially affect load times if you had a really high iteration count, but for a project of this scope I don't forsee that being an issue
+					//if it is though we'll come back and fix it
 		}
 	}
 }

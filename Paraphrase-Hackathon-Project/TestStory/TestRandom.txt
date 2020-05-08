@@ -1,0 +1,6 @@
+Random Cho choooo
+#Fizz?10# 
+Fizz  =  [Fizz] for now, but now it = #Fizz?300# [Fizz] #Buzz?Fizz#
+Buzz  =  [Buzz]
+
+~TestStory.txt return home~
