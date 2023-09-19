@@ -17,11 +17,11 @@ To use Paraphrase, follow these steps:
 
 Paraphrase offers the following benefits:
 
-    Easy to use: Paraphrase eliminates the need for complex programming by providing a simplified interface and intuitive controls. This makes it accessible to individuals with limited technical knowledge.
+  Easy to use: Paraphrase eliminates the need for complex programming by providing a simplified interface and intuitive controls. This makes it accessible to individuals with limited technical knowledge.
 
-    Lightweight: The tool is designed to be lightweight, ensuring that it runs smoothly on different devices and does not require substantial computing resources.
+  Lightweight: The tool is designed to be lightweight, ensuring that it runs smoothly on different devices and does not require substantial computing resources.
 
-    Creativity and customization: Paraphrase allows users to unleash their creativity by enabling them to create unique and personalized text adventures. You can design your own storyline, develop characters, and set up puzzles and challenges.
+  Creativity and customization: Paraphrase allows users to unleash their creativity by enabling them to create unique and personalized text adventures. You can design your own storyline, develop characters, and set up puzzles and challenges.
 
 ## Conclusion
 
