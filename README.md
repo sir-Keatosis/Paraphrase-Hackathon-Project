@@ -5,13 +5,13 @@ Paraphrase is a project developed for the 2020 HSU Hackathon. It is a simple and
 
 To use Paraphrase, follow these steps:
 
-  1. Visit the documentation page by clicking [here](https://docs.google.com/document/d/1-EjBgFT9GqnMFXzh6nrAUQHL923RuYDFIO4LZJ5DEPU/edit).
+  1. Visit the documentation page by clicking [here](https://docs.google.com/document/d/1-EjBgFT9GqnMFXzh6nrAUQHL923RuYDFIO4LZJ5DEPU/edit). The documentation provides a comprehensive guide on the syntax used in Paraphrase text documents. It explains the various features and functionalities of the tool.
 
-  2. The documentation provides a comprehensive guide on the syntax used in Paraphrase text documents. It explains the various features and functionalities of the tool.
+  2. Download the latest release from the releases tab or [here](https://github.com/sir-Keatosis/Paraphrase-Hackathon-Project/releases/tag/v1.0)
 
-  3. You do not need any prior programming or computer science knowledge to get started with Paraphrase. Simply Create a folder, with the Paraphrase Executable in it, and create .txt documents for each chapter you would like to show, Chapters represent some amount of text written to the screen after the player makes a choice.
+  4. Create a folder, with the Paraphrase Executable in it, and create .txt documents for each chapter you would like to show, Chapters represent some amount of text written to the screen after the player makes a choice.
 
-  4. The tool is designed to be user-friendly and intuitive, so even if you have little technical background, you should be able to navigate and utilize Paraphrase effectively.
+  5. The tool is designed to be user-friendly and intuitive, so even if you have little technical background, you should be able to navigate and utilize Paraphrase effectively.
 
 ## Benefits
 
